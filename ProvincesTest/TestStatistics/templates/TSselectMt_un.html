@@ -1,0 +1,60 @@
+{% extends "table2.html" %}
+{% block title %}测试结果统计(receive_report_info){% endblock %}
+{% block href %}
+
+                            <li><a href="selectMt_cm.do">移动</a></li>
+                            <li class="active"><a href="selectMt_un.do">联通</a></li>
+                            <li><a href="selectMt_cdma.do">电信1</a></li>
+                            <li><a href="selectMt_cdma1.do">电信2</a></li>
+{% endblock %}
+{% block form %}
+	<form action="selectMt_un.do" method="post" class="form-inline" />
+					<select name="search">
+										<option value="td_code">通道代码</option>
+					</select>
+					 起止时间：<input type="text" data-date-format="yyyy-mm-dd" value="" class="datepicker" name="startTime"/> - <input type="text" data-date-format="yyyy-mm-dd" value="" class="datepicker"  name ="endTime"/>
+					<input type="text" name="value" placeholder="查询关键词"/>
+					<input type="submit" class="btn"  value="查询" />
+ 	</form>	
+ 	</br>
+ 	{% if table_flist %}
+			以下省份未收到测试结果：</br>
+		{% for loss in table_flist %}
+			通道代码：{{loss.td_code}}  省份：{{loss.province}}  手机号码：{{loss.mobile}}</br>
+		{% endfor %}
+	{% else %}
+		{% ifequal flag '1' %}
+			<h5>统计结果：31个省份均收到测试结果，请查看以下明细：</h5>
+		{% endifequal %}
+	{% endif %}
+				
+{% endblock %}
+
+							
+{% block thread %}
+										<tr>
+											<th>序号</th>
+											<th>通道代码</th>
+											<th>省份</th>
+											<th>手机号码</th>
+											<th>状态描述</th>
+											<th>数量</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for statistics in table_list %}
+										<tr>
+										<td>{{ forloop.counter }}</td>
+										<td>{{ statistics.td_code }}</td>
+										<td>{{ statistics.province }}</td>
+										<td>{{ statistics.mobile }}</td>
+										{% if statistics.fail_describe == 'DELIVRD' or  statistics.fail_describe == '0'%}
+										<td>{{ statistics.fail_describe }}</td>
+										{% else %}
+										<td  style="color:red;">{{ statistics.fail_describe }}</td>
+										{% endif %}
+										<td>{{ statistics.amount }}</td>
+										</tr>
+										{% endfor %}
+{% endblock %}

@@ -1,0 +1,8 @@
+2015-04-12 14:06:13,272 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:27] - ERROR - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '['4', '3'])' at line 1")操作人：靳亚琳
+2015-04-12 15:57:30,303 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:27] - ERROR - execute() first操作人：靳亚琳
+2015-04-12 16:00:52,960 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:27] - ERROR - execute() first操作人：靳亚琳
+2015-04-14 15:31:30,849 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:27] - ERROR - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''smgpSend  where sn=255' at line 1")操作人：靳亚琳
+2015-05-14 13:09:08,095 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:30] - ERROR - unsupported operand type(s) for -: 'str' and 'int'操作人：靳亚琳
+2015-05-14 13:12:50,641 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:30] - ERROR - unsupported operand type(s) for -: 'str' and 'int'操作人：靳亚琳
+2015-05-14 15:35:24,405 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:30] - ERROR - (1146, "Table 'provinces_test_un.service_sms_info' doesn't exist")操作人：靳亚琳
+2015-05-14 15:38:25,839 - E:\workspace\ProvincesTest\ShareMethod\views.py - views.py - [line:30] - ERROR - (1146, "Table 'provinces_test_un.service_sms_info' doesn't exist")操作人：靳亚琳

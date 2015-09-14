@@ -1,0 +1,39 @@
+{% extends "form.html" %}
+{% block title %}添加{% endblock %}
+{% block title1 %}线程信息{% endblock %}
+{% block form %}
+					<form  action="insert.do" method="post" class="form-horizontal"  id="formID">
+					
+					<div class="control-group">
+								<label class="control-label">线程名称</label>
+								<div class="controls">
+									<select id="thread_name" name="thread_name" class="validate[required]"> 
+										<option value="smgp30nioSendThread">smgp30nioSendThread</option>
+										<option value="cmppSendByNioThread">cmppSendByNioThread</option>
+										<option value="sgipSendBySplitLongThread">sgipSendBySplitLongThread</option>
+										<option value="sgipSendThread">sgipSendThread</option>
+									</select>
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">线程参数</label>
+								<div class="controls">
+								<textarea  id="thread_param" name="thread_param" class="validate[required]" ></textarea> 参数之间用#号隔开
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">应用程序名称</label>
+								<div class="controls">
+									<select id="app_name" name="app_name" class="validate[required]"> 
+										<option value="sgipSend">sgipSend</option>
+										<option value="sendThread">sendThread</option>
+										<option value="smgpSend">smgpSend</option>
+									</select>
+								</div>
+					</div>
+    				<div class="form-actions">
+								<button type="submit" class="btn btn-primary" >保存</button>
+					</div>
+					</form>	
+				  	
+{% endblock %}

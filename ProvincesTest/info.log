@@ -1,0 +1,18 @@
+2015-04-12 14:08:06,100 - INFO - insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('靳亚琳','106902951016','短信上行测试','2015-04-12 14:08:06',3)操作人：靳亚琳
+2015-04-12 14:36:15,135 - INFO - insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('靳亚琳','10690116110076','上行测试','2015-04-12 14:36:14',3)操作人：靳亚琳
+2015-04-12 14:39:37,213 - INFO - insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('靳亚琳','1069026996817','上行测试~','2015-04-12 14:39:37',3)操作人：靳亚琳
+2015-04-12 16:04:13,024 - INFO - insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('15516955495','106902951016','2222','2015-04-12 16:04:12',3)操作人：靳亚琳
+2015-04-12 16:29:26,013 - INFO - insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('15516955495(河南)','106902951016','哈哈','2015-04-12 16:29:25',3)操作人：靳亚琳
+2015-04-14 15:51:06,217 - INFO - update thread_controller set thread_name='smgp30nioSendThread',thread_param='1m60C01#61.147.118.16#8890#testcg#testcg#90202020#help#0#50#1',app_name='smgpSend'  where sn=255操作人：靳亚琳
+2015-04-14 15:51:18,811 - INFO - update thread_controller set thread_name='smgp30nioSendThread',thread_param='1m60C01#61.147.118.16#8890#testcg#testcg#90202020#help#0#50#1',app_name='smgpSend'  where sn=255操作人：靳亚琳
+2015-04-14 15:54:17,198 - INFO - update thread_controller set thread_name='smgp30nioSendThread',thread_param='1m60C01#61.147.118.16#8890#testcg#testcg#90202020#help#0#50#1',app_name='smgpSend'  where sn=255操作人：靳亚琳
+2015-04-14 15:55:19,166 - INFO - update thread_controller set thread_name='smgp30nioSendThread',thread_param='1m60C01#61.147.118.16#8890#testcg#testcg#90202020#help#0#50#1',app_name='smgpSend',status=1,thread_type=1  where sn=255操作人：靳亚琳
+2015-04-14 15:55:44,384 - INFO - update thread_controller set thread_name='smgp30nioSendThread',thread_param='1m60C01#61.147.118.16#8890#testcg#testcg#90202020#help#0#50#1',app_name='smgpSend',status=4  where sn=255操作人：靳亚琳
+2015-04-14 15:56:56,086 - INFO - update thread_controller set thread_name='smgp30nioSendThread',thread_param='1m60C01#61.147.118.16#8890#testcg#testcg#90202020#help#0#50#1',app_name='smgpSend',status=1,thread_type=1  where sn=255操作人：靳亚琳
+2015-04-14 15:57:20,413 - INFO - update thread_controller set thread_name='smgp30nioSendThread',thread_param='1m60C01#61.147.118.16#8890#testcg#testcg#90202020#help#0#50#1',app_name='smgpSend',status=4  where sn=255操作人：靳亚琳
+2015-05-12 15:25:44,348 - INFO - insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('18232100281(河北) com5','13261289750','上行测试','2015-05-12 15:25:44',5)操作人：靳亚琳
+2015-05-14 13:16:14,921 - INFO - insert into sendingsmstable (PhoneNumber,SmsContent,RM1,RM2,SendModem) values ('95117','夺地地','2015-05-14 13:16:14','15350889904(河北) com5',3)操作人：靳亚琳
+2015-05-14 15:43:00,005 - INFO - insert into service_sms_info (td_code,dest_terminal_id,msg_content,insert_time,update_time,code)  values ('1065505760047','18232100281','下行测试','2015-05-14 15:42:59','2015-05-14 15:42:59','1065505760047')操作人：靳亚琳
+2015-05-17 14:09:01,745 - INFO - insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('18232100281(河北) com5','13261289750','111','2015-05-17 14:09:01',5)操作人：靳亚琳
+2015-05-26 17:07:18,897 - INFO - insert into sendingsmstable (PhoneNumber,SmsContent,SendTime,Sender,SendModem) values ('95117','111','2015-05-26 17:07:18','15370662639(江苏) com11',9)操作人：靳亚琳
+2015-05-26 17:08:15,658 - INFO - insert into sendingsmstable (PhoneNumber,SmsContent,SendTime,Sender,SendModem) values ('95117','1111','2015-05-26 17:08:15','15370662639(江苏) com11',9)操作人：靳亚琳
