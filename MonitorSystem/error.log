@@ -1,0 +1,8 @@
+2015-03-23 14:31:47,132 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.34.60,port='3306',db_name='smgp_server_new',server_name='smgp_60',status=1 wher' at line 1")操作人：靳亚琳
+2015-03-23 14:33:59,053 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")操作人：靳亚琳
+2015-03-23 14:36:46,934 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1")操作人：靳亚琳
+2015-03-23 15:09:05,119 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1054, "Unknown column 'user_id' in 'field list'")操作人：靳亚琳
+2015-03-23 15:23:18,224 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1054, "Unknown column 'user_id' in 'field list'")操作人：靳亚琳
+2015-03-25 13:45:42,315 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1054, "Unknown column '1update_time' in 'field list'")操作人：靳亚琳
+2015-04-01 09:56:59,639 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1054, "Unknown column 'agent' in 'field list'")操作人：靳亚琳
+2015-04-24 11:21:09,266 - E:\workspace\MonitorSystem\ShareMethod\views.py - views.py - [line:28] - ERROR - (1136, "Column count doesn't match value count at row 1")操作人：靳亚琳

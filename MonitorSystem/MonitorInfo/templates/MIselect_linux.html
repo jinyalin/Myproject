@@ -1,0 +1,47 @@
+{% extends "table.html" %}
+{% block title %}Linux命令管理{% endblock %}
+{% block title1 %}Linux监控命令{% endblock %}
+{% block form %}
+	<form action="select.do" method="post" class="form-inline" />
+					<select name="search">
+						<option value="monitor_command">Linux命令</option>
+						<option value="warning_content">预警内容</option>
+						<option value="comment">描述</option>
+						<option value="expect_result">期望结果</option>
+					</select>
+					<input type="text" name="value" placeholder="查询关键词"/>
+					<input type="hidden" name="monitor_type" value="1"/>
+					<input type="submit" class="btn"  value="查询" />
+					<a class="btn" href="insert.do?monitor_type=1" >添加LINUX命令</a>
+	</form>	
+
+{% endblock %}
+
+{% block thread %}
+										<tr>
+											<th>ID</th>
+											<th>linux命令</th>
+											<th width="70px">预警内容</th>
+											<th>描述</th>
+											<th nowrap="nowrap">期望结果</th>
+											<th>预警方式</th>
+											<th>操作</th>
+										</tr>
+{% endblock %}
+							
+{% block tbody %}
+
+										
+										{% for message in table_list %}
+										<tr>
+											<td>{{message.id}}</td>
+											<td class="text-left"   style="word-break:break-all; word-wrap: break-word;width:60%"><code>{{message.monitor_command}}</code></td>
+											<td  style="word-break:break-all; word-wrap: break-word;width:17%">{{message.warning_content}}</td>
+											<td  nowrap="nowrap">{{message.comment}}</td>
+											<td  style="word-break:break-all; word-wrap: break-word;width:5%">{{message.expect_result}}</td>
+											<td  style="word-break:break-all; word-wrap: break-word;width:8%">{{message.alarm_type}}</td>
+											<td><a href="update?id={{message.id}}&monitor_type=1">修改</a>&nbsp;&nbsp;<a href="ServerConfig?id={{message.id}}&monitor_type=1">配置</a></td>
+										</tr>
+										{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "form.html" %}
+{% block title %}修改{% endblock %}
+{% block title1 %}SQL监控语句{% endblock %}
+{% block form %}
+				<form action="modify.do" method="post" class="form-horizontal" id="formID"/>
+				{% for message in table_list %}
+							<div class="control-group">
+								<label class="control-label">SQL语句</label>
+								<div class="controls">
+									<textarea id="monitor_command" name="monitor_command" class="validate[required]">{{message.monitor_command}}</textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">预警内容</label>
+								<div class="controls">
+									<textarea id="warning_content" name="warning_content" class="validate[required]">{{message.warning_content}}</textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">描述</label>
+								<div class="controls">
+									<select id="comment" name="comment" class="validate[required]"> 
+									{% for list in commentList %}
+										{% ifequal message.comment list.comment%}
+										<option value="{{list.comment}}" selected>{{list.comment}}</option>
+										{% else %}
+										<option value="{{list.comment}}">{{list.comment}}</option>
+										{% endifequal %}
+									{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" >预警方式</label>
+								<div class="controls checkbox-group">
+									{% if 'sms' in message.alarm_type %}
+									<label class="inline"><input  id="check_box_list1" type="checkbox" name="check_box_list"  value="sms" class="validate[required]" checked="checked"/> 短信</label>
+									{% else %}
+									<label class="inline"><input  id="check_box_list1" type="checkbox" name="check_box_list"  value="sms" class="validate[required]" /> 短信</label>
+									{% endif %}
+									{% if 'phone' in message.alarm_type %}
+									<label class="inline"><input id="check_box_list2" type="checkbox" name="check_box_list" value="phone" class="validate[required]" checked="checked"/> 电话</label>
+									{% else %}
+									<label class="inline"><input id="check_box_list2" type="checkbox" name="check_box_list" value="phone" class="validate[required]"/> 电话</label>
+									{% endif %}
+									{% if 'email' in message.alarm_type %}
+									<label class="inline"><input id="check_box_list3" type="checkbox" name="check_box_list" value="email" class="validate[required]" checked="checked"/> 邮件</label>
+									{% else %}
+									<label class="inline"><input id="check_box_list3" type="checkbox" name="check_box_list" value="email" class="validate[required]"/> 邮件</label>
+									{% endif %}
+									{% if 'screen' in message.alarm_type %}
+									<label class="inline"><input id="check_box_list4" type="checkbox" name="check_box_list" value="screen" class="validate[required]" checked="checked"/> 弹屏</label>
+									{% else %}
+									<label class="inline"><input id="check_box_list4" type="checkbox" name="check_box_list" value="screen" class="validate[required]"/> 弹屏</label>
+									{% endif %}
+									{% if 'app' in message.alarm_type %}
+									<label class="inline"><input id="check_box_list5" type="checkbox" name="check_box_list" value="app" class="validate[required]" checked="checked"/> APP</label>
+									{% else %}
+									<label class="inline"><input id="check_box_list5" type="checkbox" name="check_box_list" value="app" class="validate[required]"/> APP</label>
+									{% endif %}
+								</div>
+							</div>
+							<input type="hidden" name="monitor_type" value="0" />
+							<input type="hidden" name="id" value="{{message.id}}" />
+					{% endfor %}
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">保存</button>
+							</div>
+					</form>
+{% endblock %}

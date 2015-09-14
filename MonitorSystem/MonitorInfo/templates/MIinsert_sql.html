@@ -1,0 +1,43 @@
+{% extends "form.html" %}
+{% block title %}添加{% endblock %}
+{% block title1 %}SQL监控语句{% endblock %}
+{% block form %}
+				<form action="insert.do" method="post" class="form-horizontal" id="formID"/>
+							<div class="control-group">
+								<label class="control-label">SQL语句</label>
+								<div class="controls">
+									<textarea id="monitor_command" name="monitor_command" class="validate[required]"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">预警内容</label>
+								<div class="controls">
+									<textarea id="warning_content" name="warning_content" class="validate[required]"></textarea>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">描述</label>
+								<div class="controls">
+									<select id="comment" name="comment" class="validate[required]"> 
+									{% for list in commentList %}
+										<option value="{{list.comment}}">{{list.comment}}</option>
+									{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" >预警方式</label>
+								<div class="controls checkbox-group">
+									<label class="inline"><input  id="check_box_list1" type="checkbox" name="check_box_list"  value="sms" class="validate[required]"/> 短信</label>
+									<label class="inline"><input id="check_box_list2" type="checkbox" name="check_box_list" value="phone" class="validate[required]"/> 电话</label>
+									<label class="inline"><input id="check_box_list3" type="checkbox" name="check_box_list" value="email" class="validate[required]"/> 邮件</label>
+									<label class="inline"><input id="check_box_list4" type="checkbox" name="check_box_list" value="screen" class="validate[required]"/> 弹屏</label>
+									<label class="inline"><input id="check_box_list5" type="checkbox" name="check_box_list" value="app" class="validate[required]"/> APP</label>
+								</div>
+							</div>
+							<input type="hidden" name="monitor_type" value="0" />
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">保存并配置服务器</button>
+							</div>
+					</form>
+{% endblock %}

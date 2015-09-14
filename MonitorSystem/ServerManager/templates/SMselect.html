@@ -1,0 +1,34 @@
+{% extends "table.html" %}
+{% block title %}服务器负责人管理{% endblock %}
+{% block title1 %}服务器负责人信息{% endblock %}
+{% block form %}
+					<a class="btn" href="insert.do" >添加服务器负责人</a>
+				
+{% endblock %}
+
+							
+{% block thread %}
+										<tr>
+											<th>ID</th>
+											<th nowrap="nowrap">业务负责组</th>
+											<th nowrap="nowrap">责任人</th>
+											<th>负责服务器</th>
+											<th>负责机房</th>
+											<th nowrap="nowrap">代理人</th>
+											<th>操作</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for manager in table_list %}
+										<tr>
+											<td>{{manager.id}}</td>
+											<td>{{manager.group_mark}}</td>
+											<td  nowrap="nowrap"><B>{{manager.group_name}}</B></td>
+											<td>{{manager.server_name}}</td>
+											<td>{{manager.server_room}}</td>
+											<td>{{manager.agent_name}}</td>
+											<td><a href="update?id={{manager.id}}">修改</a>&nbsp;&nbsp;<a href="delete?id={{manager.id}}">删除</a></td>
+										</tr>
+										{% endfor %}
+{% endblock %}
