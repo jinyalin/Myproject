@@ -1,0 +1,49 @@
+{% extends "form.html" %}
+{% block title %}Excel文件上传{% endblock %}
+{% block title1 %}运营商账单文件上传{% endblock %}
+{% block form %}
+				<form action="upload.do" method="post" class="form-horizontal" id="formID" enctype="multipart/form-data"/>
+							<div class="control-group">
+								<label class="control-label">通道类别：</label>
+								<div class="controls">
+									<select id="be_area" name="be_area" class="validate[required]"> 
+									{% for list in be_areaList %}
+										<option value="{{list.sn}}">{{list.tag}}</option>
+									{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">通道分类：</label>
+								<div class="controls">
+									<select id="be_type" name="be_type" class="validate[required]"> 
+									{% for list in be_typeList %}
+										<option value="{{list.sn}}">{{list.tag}}</option>
+									{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">短/彩信：</label>
+								<div class="controls radio-group">
+									<label class="inline"><input id="sms" type="radio" name="mode" value='0' class="validate[required]" checked/>短信</label>
+									<label class="inline"><input id="mms" type="radio" name="mode" value='1' class="validate[required]"/>彩信</label>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">本地Excel账单：</label>
+								<div class="controls">
+									{{yf.as_p}}
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Excel格式说明：</label>
+								<div class="controls">
+									<span class="help-block"><code>1、Excel需要有标题，且第一行为标题，标题命名无限制。</br>2、第一列为：接入号,不允许为空;</br>第二列为：成功数，不允许为空;</br>第三列为：提交数，允许为空;</br>第四列为：账户名称，允许为空。</br></code></span>
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+					</form>
+{% endblock %}

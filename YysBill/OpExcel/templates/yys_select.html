@@ -1,0 +1,48 @@
+{% extends "table.html" %}
+{% block title %}运营商账单{% endblock %}
+{% block title1 %}已录入的上个月份的运营商账单查询{% endblock %}
+
+{% block form %}
+	<form action="select.do" method="post" class="form-inline" />
+					<select name="search">
+						<option value="gate_name">运营商</option>
+						<option value="sp_number">接入号</option>
+					</select>
+					<input type="text" name="value" placeholder="查询关键词"/>
+					<input type="submit" class="btn"  value="查询" />
+ 	</form>	
+				
+{% endblock %}
+
+{% block thread %}
+						
+										<tr>
+											<th>月份</th>
+											<th>运营商</th>
+											<th  nowrap="nowrap">接入号</th>
+											<th  nowrap="nowrap">短/彩信</th>
+											<th nowrap="nowrap">成功数</th>
+											<th nowrap="nowrap">操作</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										
+										{% for data in table_list %}
+										<tr>
+											
+											<td nowrap="nowrap">{{data.every_month}}</td>
+											<td nowrap="nowrap">{{data.gate_name}}</td>
+											<td nowrap="nowrap">{{data.sp_number}}</td>
+											{% if data.mode == 0 %}
+											<td>短信</td>
+											{% else %}
+											<td>彩信</td>
+											{% endif %}
+											<td nowrap="nowrap">{{data.success_count}}</td>
+											<td><a href="update.do?id={{data.id}}">修改</a></td>
+										</tr>
+										{% endfor %}
+
+{% endblock %}						
+				
