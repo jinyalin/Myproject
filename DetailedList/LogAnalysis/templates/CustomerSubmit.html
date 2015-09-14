@@ -1,0 +1,37 @@
+{% extends "table2.html" %}
+{% block title %}网关客户提交记录查询{% endblock %}
+{% block title1 %}客户提交记录查询{% endblock %}
+{% block form %}
+	<form action="customerSubmit.do" method="post" class="form-inline" name="formID" id="formID"/>
+			服务器：<select id="server" name="server" class="validate[required]">
+								{% for server1 in server_list %}
+									{% ifequal server1.ip server %}
+									<option value="{{server1.ip}}" selected>{{server1.server_name}}</option>
+									{% else %}
+									<option value="{{server1.ip}}">{{server1.server_name}}</option>
+									{% endifequal %}
+								{% endfor %}
+					</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;提交号码：<input type="text" name="mobile" id="mobile" value="{{mobile}}" placeholder="手机号码" class="validate[required]"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;提交时间：<input  type="text" id="startTime" data-date-format="yyyy-mm-dd"  class="datepicker" value="{{startTime}}" name="startTime" class="validate[required]"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn"  value="查询" />
+ 	</form>	
+				
+{% endblock %}
+
+							
+{% block thread %}
+										<tr>
+											<th nowrap="nowrap">序号</th>
+											<th>客户提交记录&nbsp;&nbsp;(奇数行为客户提交参数信息Dest_terminal_Id=后面为手机号码，偶数行为提交响应，submitResp:0表示提交成功，其他值表示提交失败。奇偶行需要SequenceNumber值相同才是同一条信息。)</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for message in table_list %}
+										<tr>
+											<td>{{ forloop.counter }}</td>
+											<td style="word-break:break-all; word-wrap: break-word">{{message.content}}</td>
+										</tr>
+										{% endfor %}
+{% endblock %}

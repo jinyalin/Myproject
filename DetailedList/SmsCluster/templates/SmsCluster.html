@@ -1,0 +1,66 @@
+{% extends "table.html" %}
+{% block title %}集群下发信息查询{% endblock %}
+{% block title1 %}集群下发信息查询（展示20条记录只对查询有效，可用于查询某个错误码的手机号码，详单导出是导出所需时间内的全部数据，要导出详单时不用查询，直接导出即可。）<span style="color:red">(注：只做为查看了解号码及内容等信息，不做为任何核对依据！)</span>{% endblock %}
+{% block form %}
+
+<script type="text/javascript">
+function selectAction(){
+	document.getElementById("formID").action = "select_cluster.do";
+	document.formID.submit();
+}
+ 
+function exportAction(){
+	document.getElementById("formID").action = "export_cluster.do";
+	document.formID.submit();
+	
+}
+</script>
+	<form action="" method="post" class="form-inline" name="formID" id="formID" class="form-horizontal"/>
+					账号：<input type="text" name="user_id" value="{{user_id}}" placeholder="账号id(必填)" id="user_id" class="validate[required]"/>
+					起止时间：<input type="text" data-date-format="yyyy-mm-dd"  class="datepicker" value="{{startTime}}" name="startTime" class="validate[required]"/> - <input type="text" data-date-format="yyyy-mm-dd"  class="datepicker"  value="{{endTime}}" name ="endTime" class="validate[required]"/>
+					<input type='hidden' value="1" name="flag" />
+					<input type="text" name="fail_desc" value="{{fail_desc}}" placeholder="错误描述(如:MI:0013/UNDELV等)" id="fail_desc"/>
+					展示需求：<select id="limit" name="limit" class="validate[required]"> 
+						<option value="20" selected>只展示20条记录</option>
+						<option value="0">全部展示</option>
+					</select>
+					<input type="button"  class="btn"  onclick="selectAction()" value="查询" />
+					接收邮箱：<input id="email" type="text" name="email"  placeholder="邮箱地址(多个邮箱用空格隔开)" class="validate[required]"/>
+					<input type="button" class="btn btn-primary"  onclick="exportAction()" value="导出详单" />
+ 	</form>	
+				
+{% endblock %}
+
+							
+{% block thread %}
+										<tr>
+											<th>账号</th>
+											<th>接入号</th>
+											<th>接收时间</th>
+											<th>状态报告时间</th>
+											<th>消息id</th>
+											<th>手机号码</th>
+											<th>状态码</th>
+											<th>状态描述</th>
+											<th>计费条数</th>
+											<th>发送内容</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for comment in table_list %}
+										<tr>
+											<td>{{comment.user_id}}</td>
+											<td>{{comment.sp_number}}</td>
+											<td>{{comment.msg_receive_time}}</td>
+											<td>{{comment.msg_report_time}}</td>
+											<td>{{comment.msg_id}}</td>
+											<td>{{comment.mobile}}</td>
+											<td>{{comment.response}}</td>
+											<td>{{comment.fail_desc}}</td>
+											<td>{{comment.charge_count}}</td>
+											<td>{{comment.msg_content}}</td>
+										</tr>
+										{% endfor %}
+										
+{% endblock %}

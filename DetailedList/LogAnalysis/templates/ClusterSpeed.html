@@ -1,0 +1,42 @@
+{% extends "table2.html" %}
+{% block title %}集群客户提交速度查询{% endblock %}
+{% block title1 %}客户提交速度查询{% endblock %}
+{% block form %}
+	<form action="clusterSpeed.do" method="post" class="form-inline" name="formID" id="formID"/>
+					服务器：<select name="server">
+								<option value="210.14.134.81">cluster_64</option>
+							</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;查询选项：<select id="search" name="search" class="validate[required]">
+															{% if search == "nowtype" %}
+															<option value="nowtype" selected>当前实时提交速度</option>
+															<option value="lasttype">全天速度top20</option>
+															{%else%}
+															<option value="lasttype" selected>全天提交速度top20</option>
+															<option value="nowtype">当前实时提交速度</option>
+															{%endif%}
+														</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;账号ID:<input type="text" name="user_id" id="user_id" value="{{user_id}}" placeholder="账号ID" class="validate[required]"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;统计时间：<input  type="text" id="startTime" data-date-format="yyyy-mm-dd"  class="datepicker" value="{{startTime}}" name="startTime" class="validate[required]"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn"  value="查询" />
+ 	</form>	
+				
+{% endblock %}
+
+							
+{% block thread %}
+										<tr>
+											<th nowrap="nowrap">序号</th>
+											<th nowrap="nowrap">接收时间(msg_receive_time)</th>
+											<th nowrap="nowrap">提交数量</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for message in table_list %}
+										<tr>
+											<td>{{ forloop.counter }}</td>
+											<td>{{message.msg_receive_time}}</td>
+											<td>{{message.amount}}</td>
+										</tr>
+										{% endfor %}
+{% endblock %}

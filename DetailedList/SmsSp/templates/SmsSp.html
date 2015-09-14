@@ -1,0 +1,71 @@
+{% extends "table.html" %}
+{% block title %}SP短信下发信息查询{% endblock %}
+{% block title1 %}SP短信下发信息查询<span style="color:red">(注：只能查询当天下发的信息以及三天内状态报告为1000未知状态的信息)</span>{% endblock %}
+{% block form %}
+<script type="text/javascript">
+function selectAction(){
+	document.getElementById("formID").action = "select_SmsSp.do";
+	document.formID.submit();
+}
+ 
+function exportAction(){
+	document.getElementById("formID").action = "export_SmsSp.do";
+	document.formID.submit();
+	
+}
+</script>
+	<form action="" method="post" class="form-inline" name="formID" id="formID" />
+					服务器：<select id="server" name="server" class="validate[required]">
+								{% for server1 in server_list %}
+									{% ifequal server1.ip server %}
+									<option value="{{server1.ip}}" selected>{{server1.server_name}}</option>
+									{% else %}
+									<option value="{{server1.ip}}">{{server1.server_name}}</option>
+									{% endifequal %}
+								{% endfor %}
+					</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;账号：<input  type="text" name="customer_id"  value="{{customer_id}}" placeholder="账号id(必填)" id="customer_id" class="validate[required]"/>
+					&nbsp;&nbsp;&nbsp;&nbsp;起止时间：<input  type="text" data-date-format="yyyy-mm-dd"  value="{{startTime}}" class="datepicker" name="startTime" class="validate[required]"/> - <input  type="text" data-date-format="yyyy-mm-dd"  value="{{endTime}}" class="datepicker"  name ="endTime" class="validate[required]"/>
+					<input type='hidden' value="1" name="flag" />
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button"  class="btn"  onclick="selectAction()" value="查询" />
+					&nbsp;&nbsp;&nbsp;&nbsp;接收邮箱：<input id="email" type="text" name="email"  placeholder="邮箱地址(多个邮箱用空格隔开)" class="validate[required]"/>
+					<input type="button" class="btn btn-primary"  onclick="exportAction()" value="导出详单" />
+					
+ 	</form>	
+				
+{% endblock %}
+
+							
+{% block thread %}
+										<tr>
+											<th>账号</th>
+											<th>接入号</th>
+											<th>手机号码</th>
+											<th nowrap="nowrap">状态码</th>
+											<th>状态描述</th>
+											<th>发送时间</th>
+											<th>更新时间</th>
+											<th nowrap="nowrap">消息id</th>
+											<th nowrap="nowrap">计费条数</th>
+											<th>发送内容</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for comment in table_list %}
+										<tr>
+											<td>{{comment.customer_id}}</td>
+											<td>{{comment.code}}</td>
+											<td>{{comment.dest_terminal_id}}</td>
+											<td>{{comment.response_status}}</td>
+											<td>{{comment.fail_describe}}</td>
+											<td>{{comment.insert_time}}</td>
+											<td>{{comment.update_time}}</td>
+											<td>{{comment.msg_id}}</td>
+											<td>{{comment.charge_count}}</td>
+											<td>{{comment.msg_content}}</td>
+										</tr>
+										{% endfor %}
+										
+{% endblock %}

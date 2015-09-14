@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<html lang="en">
+	<!-- container-fluid -->
+	<head>
+		<title>信息查询系统</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="static/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="static/css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="static/css/unicorn.main.css" />
+		<link rel="stylesheet" href="static/css/unicorn.grey.css" class="skin-color" />
+		<style type="text/css">
+			html,body{ height: 100%;}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h1><a href="index.html">信息查询系统</a></h1>		
+		</div>
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li><a title="" href="#"><i class="icon icon-user"></i> <span class="text">{{username}}</span></a></li>
+                <li><a title="" href="logout"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			<a href="#" class="visible-phone"><i class="icon icon-home"></i>查询菜单</a>
+			<ul>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-list-alt"></i> <span>详单查询</span> <span class="label">&gt;&gt;</span></a>
+					<ul>
+						<li><a href="SmsCluster/select_cluster.do" target="mainframe">集群详单</a></li>
+						<!--
+						<li><a href="SmsSp/select_SmsSp.do" target="mainframe">SP短信详单</a></li>
+						<li><a href="SmsGate/select_cmpp.do" target="mainframe">cmpp网关详单</a></li>
+						<li><a href="SmsGate/select_sgip.do" target="mainframe">sgip网关详单</a></li>
+						<li><a href="SmsGate/select_smgp.do" target="mainframe">smgp网关详单</a></li>
+						<li><a href="MonitorInfo/select.do?monitor_type=1" target="mainframe">SP彩信详单</a></li>
+						<li><a href="MonitorInfo/select.do?monitor_type=1" target="mainframe">流量详单</a></li>
+						<li><a href="MonitorInfo/select.do?monitor_type=1" target="mainframe">语音详单</a></li>
+				<li class="submenu"><a href="#"><i class="icon icon-tasks"></i> <span>集群提交/速度查询</span> <span class="label">&gt;&gt;</span></a>
+						<ul>
+							<li><a href="LogAnalysis/clusterSpeed.do" target="mainframe">客户提交速度查询</a></li>
+							<li><a href="LogAnalysis/clusterTdSend.do" target="mainframe">通道发送速度查询</a></li>
+						</ul>
+				</li>
+							<li><a href="LogAnalysis/tdOverStock.do" target="mainframe">通道实时积压查询</a></li>
+						-->
+					</ul>
+				</li>
+				 
+				<li class="submenu"><a href="#"><i class="icon icon-tasks"></i> <span>网关提交/速度查询</span> <span class="label">&gt;&gt;</span></a>
+						<ul>
+							<li><a href="LogAnalysis/customerSubmit.do" target="mainframe">客户提交记录查询</a></li>
+							<li><a href="LogAnalysis/customerSpeed.do" target="mainframe">客户提交速度查询</a></li>
+							<li><a href="LogAnalysis/tdSend.do" target="mainframe">通道发送速度查询</a></li>
+						</ul>
+				</li>
+				
+				<li><a class="sidebar-toggler tip-top" data-original-title="折叠" href="#"><i class="icon icon-step-backward"></i></a></li>
+			</ul>
+		</div>
+		
+		<div id="content">
+			<iframe src="SmsCluster/select_cluster.do" width="100%" height="100%" frameborder="0" name="mainframe" id="mainframe">			
+			</iframe>
+		</div>
+
+            <script src="static/js/jquery.min.js"></script>
+            <script src="static/js/bootstrap.min.js"></script>	
+            <script src="static/js/unicorn.js"></script>
+            <script type="text/javascript">	
+				
+			</script>
+	</body>
+</html>
