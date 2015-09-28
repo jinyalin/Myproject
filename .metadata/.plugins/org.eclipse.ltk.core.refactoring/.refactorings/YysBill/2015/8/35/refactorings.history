@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;YysBill/OpExcel/templates/MIedit_sql.html&apos; to &apos;yys_edit.html&apos;" description="Rename resource &apos;MIedit_sql.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="OpExcel/templates/MIedit_sql.html" name="yys_edit.html" stamp="1440470763473" updateReferences="true"/>
+</session>

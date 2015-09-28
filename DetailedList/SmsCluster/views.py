@@ -239,10 +239,10 @@ def export_cluster(req):
             ShareMethod.views.exeQuery(cur,sql)
             ShareMethod.views.connClose(conn,cur)
             server = "210.14.134.81"
-            print("ssh "+user+"@"+server+" -p10064 tar -Pzcvf "+TarPath+" "+FilePath1)
-            os.system("ssh "+user+"@"+server+" -p10064 tar -Pzcvf "+TarPath+" "+FilePath1)
-            print("ssh "+user+"@"+server+" -p10064 /usr/local/bin/sendEmail -f nagios@baiwutong.com -t "+email+" -s mail.baiwutong.com -u '详单调取'   -a "+TarPath +" -xu nagios@baiwutong.com  -xp hskj707")
-            os.system("ssh "+user+"@"+server+" -p10064 /usr/local/bin/sendEmail -f nagios@baiwutong.com -t "+email+" -s mail.baiwutong.com -u '详单调取'  -m '您好，附件为您提取的详单，请查阅~'  -a "+TarPath +" -xu nagios@baiwutong.com  -xp hskj707")
+            print("ssh "+user+"@"+server+" -p10065 tar -Pzcvf "+TarPath+" "+FilePath1)
+            os.system("ssh "+user+"@"+server+" -p10065 tar -Pzcvf "+TarPath+" "+FilePath1)
+            print("ssh "+user+"@"+server+" -p10065 /usr/local/bin/sendEmail -f nagios@baiwutong.com -t "+email+" -s mail.baiwutong.com -u '详单调取'   -a "+TarPath +" -xu nagios@baiwutong.com  -xp hskj707")
+            os.system("ssh "+user+"@"+server+" -p10065 /usr/local/bin/sendEmail -f nagios@baiwutong.com -t "+email+" -s mail.baiwutong.com -u '详单调取'  -m '您好，附件为您提取的详单，请查阅~'  -a "+TarPath +" -xu nagios@baiwutong.com  -xp hskj707")
             
         except Exception as e:
             ShareMethod.views.ErrorLog(str(e)+"操作人："+operatorName)

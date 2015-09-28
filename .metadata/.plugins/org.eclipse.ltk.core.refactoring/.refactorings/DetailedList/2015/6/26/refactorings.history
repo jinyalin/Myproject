@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DetailedList/MmsSp/templates/SmsSp.html&apos; to &apos;MmsSp.html&apos;" description="Rename resource &apos;SmsSp.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MmsSp/templates/SmsSp.html" name="MmsSp.html" stamp="1435297590787" updateReferences="true"/>
+</session>

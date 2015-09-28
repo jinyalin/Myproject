@@ -1,0 +1,13 @@
+# coding=UTF-8
+import os,sys
+num = 0
+while True:
+    Sn = os.system("mysql -uyunwei -pmobile707 -e \"use cmpp_server;show table status like 'td_info';\"  | grep -v \"Name\" | awk '{print $11}'")
+    MaxSn = int(Sn)-1
+    if MaxSn > num and num == 0:
+        num = MaxSn
+    else:
+        if MaxSn > num:
+            yw_code = os.system("mysql -uyunwei -pmobile707 -e \"use cmpp_server;select td_code,td_name,ext from td_info where sn="+MaxSn+";\" | grep -v \"td_code\" | awk  '{print $1}'")
+            td_info
+            

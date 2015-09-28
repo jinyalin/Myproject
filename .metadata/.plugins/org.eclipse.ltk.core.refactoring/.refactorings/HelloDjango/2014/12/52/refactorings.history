@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;HelloDjango/blog/templates/show_authors.html&apos; to &apos;show_author.html&apos;" description="Rename resource &apos;show_authors.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="blog/templates/show_authors.html" name="show_author.html" stamp="1419669379174" updateReferences="true"/>
+</session>

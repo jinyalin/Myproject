@@ -1,0 +1,10 @@
+#Sat Jan 10 14:53:22 CST 2015
+Type=1,0,0,0,0,64,0,200
+Keyword=1,0,0,0,0,127,0,85
+Others=0,0,0,0,1,0,0,0
+Identifier=0,0,0,0,0,0,0,128
+Single\ quoted\ string=0,0,0,0,0,0,0,255
+Double\ quoted\ string=0,0,0,0,0,0,128,0
+eclipse.preferences.version=1
+Single-line\ comment=0,0,0,0,0,64,128,128
+Multi-line\ comment=0,0,0,0,0,64,128,128

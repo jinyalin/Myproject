@@ -1,0 +1,73 @@
+-- VERSION_3
+-- START DISKCACHE
+E:\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\YysBill\com.python.pydev.analysis\v1_indexcache
+.v1_indexcache
+OpExcel.views|0|E:\workspace\YysBill\OpExcel\views.py
+-- END DISKCACHE
+-- START DICTIONARY
+7
+5=Login.views
+1=YysBill.settings
+4=OpExcel.views
+7=YysData
+6=YysBill.urls
+2=YysBill.wsgi
+3=ShareMethod.views
+-- END DICTIONARY
+-- START TREE 1
+44
+|0|
+!<m|0|
+Bi|0|
+Y|0|
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+bas|1|BASE_DIR!11@
+bil|0|
+con|3|connClose!26@connDB!26@connDB1!26@
+cur|0|
+d1|0|
+d2|0|
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+def|1|DEFAULT_CHARSET!11@
+err|1|ErrorLog!26@
+exe|4|exeDelete!26@exeUpdate!26@exeInsert!26@exeQuery!26@
+fai|1|FailureMessage!26@
+fil|3|FILE_CHARSET!11@filename_info!27@filename_error!27@
+ind|1|index!26@
+inf|1|InfoLog!26@
+ins|2|insert!34@INSTALLED_APPS!11@
+lan|1|LANGUAGE_CODE!11@
+las|0|
+log|2|logout!42@login!42@
+mid|1|MIDDLEWARE_CLASSES!11@
+mod|1|modify!34@
+mon|0|
+pag|1|pagination!26@
+pro|2|projs!19@proj!19@
+res|0|
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sel|1|select!34@
+sta|3|STATIC_URL!11@STATIC_PATH!11@STATIC_ROOT!11@
+suc|1|SuccessMessage!26@
+tem|3|TEMPLATE_DIRS!11@TEMPLATE_DEBUG!11@TEMPLATE_CONTEXT_PROCESSORS!11@
+tim|1|TIME_ZONE!11@
+upd|1|update!34@
+upl|1|upload!34@
+url|1|urlpatterns!51@
+use|3|USE_L10N!11@USE_I18N!11@USE_TZ!11@
+wsg|1|WSGI_APPLICATION!11@
+yys|1|YysData!33@
+-- END TREE
+-- START TREE 2
+7
+__u|0|
+be_|0|
+hea|0|
+mod|0|
+use|0|
+yes|0|
+yys|1|yys_file!7&35@
+-- END TREE

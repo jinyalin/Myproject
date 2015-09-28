@@ -1,0 +1,253 @@
+from django import forms
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.http.response import HttpResponseRedirect
+import ShareMethod.views
+import time
+import os,sys
+import paramiko
+
+def GateLog(req,command,html,server,port):
+    if req.method == 'POST':
+        mobile = req.REQUEST.get('mobile','0')
+        startTime = req.REQUEST.get('startTime','0')
+        server = req.REQUEST.get('server','0')
+        user_sp_number = req.REQUEST.get('user_sp_number','0')
+        td_code = req.REQUEST.get('td_code','0')
+        search = req.REQUEST.get('search','0')
+        username = 'bjxtb'
+        pkey_file='/home/bjxtb/.ssh/id_rsa'
+        s = paramiko.SSHClient()
+        s.load_system_host_keys()
+        s.set_missing_host_key_policy(paramiko.AutoAddPolicy()) 
+        key = paramiko.RSAKey.from_private_key_file(pkey_file)
+        s.connect(server,port,username,pkey=key,timeout=10)
+        stdin,stdout,stderr = s.exec_command(command)
+        #cmd_result = stdout.read(),stderr.read()
+        table_list = []
+        for result in stdout.readlines():
+            table_list.append({'content':result.strip("\n")})
+        s.close()
+        server_list = select_server()
+        serverName=''
+        for serverlist in server_list:
+            if serverlist.get("ip") == server:
+                serverName = serverlist.get("server_name")
+        if 'cmpp' in serverName:
+            dbname = "cmpp_server"
+        if 'smgp' in serverName:
+            dbname = "smgp_server_new"
+        if 'sgip' in serverName:
+            dbname = "sgip_server"
+        tdSpeed = select_tdSpeed(td_code,server,dbname)
+        return render_to_response(html,locals())
+    else:
+        server_list = select_server()
+        print(server_list)
+        return render_to_response(html,locals())
+    
+def customerSubmit(req):
+    mobile = req.REQUEST.get('mobile','0').strip()
+    startTime = req.REQUEST.get('startTime','0')
+    server = req.REQUEST.get('server','0')
+    print("server="+server)
+    html = "CustomerSubmit.html"
+    port = 22
+    if server == '218.207.183.118':
+        port = 10023
+    if server == '61.147.118.16':
+        port = 10002
+    if server == '115.85.192.72':
+        port = 10022
+    nowDate = time.strftime('%Y-%m-%d')
+    if startTime == nowDate:
+        logName = "/hskj/logs/gate/receiver.txt"
+    else:
+        logName = "/hskj/logs/gate/receiver.txt."+nowDate
+        
+    command = "grep -A1 '"+mobile+"' "+logName+" | head -100 | grep -v '\-\-'"
+    print("command="+command)
+    return GateLog(req,command,html,server,port)
+
+def customerSpeed(req):
+    user_sp_number = req.REQUEST.get('user_sp_number','0').strip()
+    print(user_sp_number)
+    search = req.REQUEST.get('search','0')
+    startTime = req.REQUEST.get('startTime','0')
+    server = req.REQUEST.get('server','0')
+    print(server)
+    html = "CustomerSpeed.html"
+    port = 22
+    if server == '218.207.183.118':
+        port = 10023
+    if server == '61.147.118.16':
+        port = 10002
+    if server == '115.85.192.72':
+        port = 10022
+    nowDate = time.strftime('%Y-%m-%d')
+    if startTime == nowDate:
+        logName = "/hskj/logs/gate/receiver.txt"
+        print ("logName="+logName)
+        if search == "nowtype":
+            command = "tail -100000 "+logName+" | grep -a '"+user_sp_number+"' | awk -F \",\" '{print $1}' | sort | uniq -c"
+            print(command)
+        else:
+            command = "grep -a '"+user_sp_number+"' "+logName+" | awk -F \",\" '{print $1}' | sort | uniq -c | sort -k1 -nr | head -20"
+            print(command)
+    else:
+        logName = "/hskj/logs/gate/receiver.txt."+nowDate
+        print ("logName="+logName)
+        command = "grep -a '"+user_sp_number+"' "+logName+" | awk -F \",\" '{print $1}' | sort | uniq -c | sort -k1 -nr | head -20"
+        print(command)
+    
+        
+    return GateLog(req,command,html,server,port)
+
+def clusterSpeed(req):
+    if req.method == 'POST':
+        user_id = req.REQUEST.get('user_id','0').strip()
+        search = req.REQUEST.get('search','0')
+        startTime = req.REQUEST.get('startTime','0')
+        server = req.REQUEST.get('server','0')
+        dbname = "cluster_server"
+        nowDate = time.strftime('%Y-%m-%d')
+        nowMonth = time.strftime('%Y%m')
+        if startTime == nowDate:
+            table = "submit_message_send_history"
+            if search == "nowtype":
+                sql = "select substring(msg_receive_time,1,19),count(*) as amount from "+table+" where user_id='"+user_id+"' and msg_receive_time > DATE_ADD(now(),INTERVAL -20 MINUTE) group by 1 order by 2 desc limit 20"
+                print(sql)
+            else:
+                sql = "select substring(msg_receive_time,1,19),count(*) as amount from "+table+" where user_id='"+user_id+"' and msg_receive_time like '"+startTime+"%' group by 1 order by 2 desc limit 20"
+                print(sql)
+        else:
+            table = "submit_message_send_history_"+nowMonth
+            sql = "select substring(msg_receive_time,1,19),count(*) as amount from "+table+" where user_id='"+user_id+"' and msg_receive_time like '"+startTime+"%' group by 1 order by 2 desc limit 20"
+            print(sql)
+            
+        conn,cur=ShareMethod.views.connDB_yw(server,dbname)
+        ShareMethod.views.exeQuery(cur,sql)
+        table_list = []
+        for row in cur:
+            table_list.append({'msg_receive_time':row[0],'amount':row[1]})
+        ShareMethod.views.connClose(conn,cur)
+        return render_to_response('ClusterSpeed.html',locals())
+    else:
+        return render_to_response('ClusterSpeed.html',locals())
+    
+def clusterTdSend(req):
+    if req.method == 'POST':
+        td_code = req.REQUEST.get('td_code','0').strip()
+        search = req.REQUEST.get('search','0')
+        startTime = req.REQUEST.get('startTime','0')
+        server = req.REQUEST.get('server','0')
+        dbname = "cluster_server"
+        nowDate = time.strftime('%Y-%m-%d')
+        nowMonth = time.strftime('%Y%m')
+        if startTime == nowDate:
+            table = "submit_message_send_history"
+            if search == "nowtype":
+                sql = "select substring(msg_send_time,1,19),count(*) as amount from "+table+" where td_code='"+td_code+"' and msg_send_time > DATE_ADD(now(),INTERVAL -20 MINUTE) group by 1 order by 2 desc limit 20"
+                print(sql)
+            else:
+                sql = "select substring(msg_send_time,1,19),count(*) as amount from "+table+" where td_code='"+td_code+"' and msg_send_time like '"+startTime+"%' group by 1 order by 2 desc limit 20"
+                print(sql)
+        else:
+            table = "submit_message_send_history_"+nowMonth
+            sql = "select substring(msg_send_time,1,19),count(*) as amount from "+table+" where td_code='"+td_code+"' and msg_send_time like '"+startTime+"%' group by 1 order by 2 desc limit 20"
+            print(sql)
+            
+        conn,cur=ShareMethod.views.connDB_yw(server,dbname)
+        ShareMethod.views.exeQuery(cur,sql)
+        table_list = []
+        for row in cur:
+            table_list.append({'msg_send_time':row[0],'amount':row[1]})
+        ShareMethod.views.connClose(conn,cur)
+        tdSpeed = select_tdSpeed(td_code,server,dbname)
+        return render_to_response('ClusterTdSend.html',locals())
+    else:
+        return render_to_response('ClusterTdSend.html',locals())
+def tdSend(req):
+    td_code = req.REQUEST.get('td_code','0').strip()
+    search = req.REQUEST.get('search','0')
+    startTime = req.REQUEST.get('startTime','0')
+    server = req.REQUEST.get('server','0')
+    print(server)
+    html = "TdSend.html"
+    port = 22
+    if server == '218.207.183.118':
+        port = 10023
+    if server == '61.147.118.16':
+        port = 10002
+    if server == '115.85.192.72':
+        port = 10022
+    nowDate = time.strftime('%Y-%m-%d')
+    if startTime == nowDate:
+        logName = "/hskj/logs/send/info.log"
+        print ("logName="+logName)
+        if search == "nowtype":
+            command = "tail -100000 "+logName+" | grep -a 'yw_code:"+td_code+"' | grep -a \"waitSubmitRespMap\" | awk -F \",\" '{print $1}' | sort | uniq -c " 
+            print(command)
+        else:
+            command = "grep -a 'yw_code:"+td_code+"' "+logName+" |grep -a \"status\" | awk -F \",\" '{print $1}' | sort | uniq -c | sort -k1 -nr | head -20"
+            print(command)
+    else:
+        logName = "/hskj/logs/send/info.log."+nowDate
+        print ("logName="+logName)
+        command = "grep -a 'yw_code:"+td_code+"' "+logName+" |grep -a \"status\" | awk -F \",\" '{print $1}' | sort | uniq -c | sort -k1 -nr | head -20"
+        print(command)
+    
+        
+    return GateLog(req,command,html,server,port)
+
+def tdOverStock(req):
+    if req.method == 'POST':
+        server = req.REQUEST.get('server','0')
+        server_list = select_server()
+        serverName = ''
+        dbname=''
+        for serverlist in server_list:
+            if serverlist.get("ip") == server:
+                serverName = serverlist.get("server_name")
+        if 'cmpp' in serverName:
+            dbname = "cmpp_server"
+        if 'smgp' in serverName:
+            dbname = "smgp_server_new"
+        if 'sgip' in serverName:
+            dbname = "sgip_server"
+        sql = "select b.td_name as td_name,a.yw_code as yw_code,count(*) as file_count ,sum(a.mobile_count) as mobile_count from file_info_submit a,td_info b where b.td_code=a.yw_code and timestampdiff(second, a.create_time, now()) > 30 group by 1,2"
+        conn,cur=ShareMethod.views.connDB_yw(server,dbname)
+        ShareMethod.views.exeQuery(cur,sql)
+        table_list = []
+        for row in cur:
+            table_list.append({'td_name':row[0],'td_code':row[1],'file_count':row[2],'mobile_count':row[3]})
+        ShareMethod.views.connClose(conn,cur)
+        return render_to_response('TdOverStock.html',locals())
+    else:
+        server_list = select_server()
+        return render_to_response('TdOverStock.html',locals())
+        
+    
+def select_server():   
+    server_list = [] 
+    conn,cur=ShareMethod.views.connDB_plate()
+    sql = "select server_ip,server_id from server_info where status=0 "
+    print(sql)
+    ShareMethod.views.exeQuery(cur,sql)
+    for row in cur:
+        server_list.append({'ip':row[0],'server_name':row[1]})
+    ShareMethod.views.connClose(conn,cur)
+    return server_list  
+
+def select_tdSpeed(td_code,server,dbname):
+    tdSpeed = ''
+    conn,cur=ShareMethod.views.connDB_yw(server,dbname)
+    sql = "select substring_index(substring_index(thread_param,' ',9),' ',-2) as speed from thread_controller where group_id='"+td_code+"'"
+    print(sql)
+    ShareMethod.views.exeQuery(cur,sql)
+    for row in cur:
+        tdSpeed = row[0]
+    ShareMethod.views.connClose(conn,cur)
+    return tdSpeed  
+    
+         

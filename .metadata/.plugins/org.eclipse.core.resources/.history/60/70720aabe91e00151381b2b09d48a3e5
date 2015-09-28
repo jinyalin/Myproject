@@ -1,0 +1,40 @@
+{% extends "form.html" %}
+{% block title %}上行信息测试(outbox){% endblock %}
+{% block href %}
+                            <li class="active"><a href="insert_cm.do">移动</a></li>
+                            <li><a href="insert_un.do">联通</a></li>
+                            <li><a href="insert_cdma.do">电信1</a></li>
+                            <li><a href="insert_cdma1.do">电信2</a></li>
+{% endblock %}
+{% block form %}
+					<form  action="insert_cm.do" method="post" class="form-horizontal"  id="formID">
+					
+					<div class="control-group">
+								<label class="control-label">上行接入号</label>
+								<div class="controls">
+									<input  id="ReceiverMobileNo" name="ReceiverMobileNo" class="validate[required]" />
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">上行手机号码</label>
+								<label class="control-label">移动手机卡说明：黑龙江卡目前有问题，其余30张卡都在移动猫池上，大家注意如果要插拔卡，请使用完及时放回猫池并调试好~</label>
+								<div class="controls checkbox-group group-name all-check-group">
+									<label class="inline bold"><input type="checkbox" id="CommPort" name="all_check"/> 全选</label>
+									{% for province in provinceNames %}
+									<label class="inline"><input type="checkbox" id="{{province.commport}}" name="CommPort" value="{{province.commport}}" class="validate[minCheckbox[1]]"/> {{province.province}}({{province.mobile}}) com {{province.commport}}</label>
+									{% endfor %}
+								</div>
+					</div>
+
+					<div class="control-group">
+								<label class="control-label">上行内容</label>
+								<div class="controls">
+									<textarea id="Msg" name="Msg" class="validate[required]"></textarea>
+								</div>
+					</div>
+    				<div class="form-actions">
+								<button type="submit" class="btn btn-primary" >提交</button>
+					</div>
+					</form>	
+				  	
+{% endblock %}

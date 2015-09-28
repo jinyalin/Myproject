@@ -1,0 +1,62 @@
+-- VERSION_3
+-- START DISKCACHE
+E:\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\ProvincesTest\com.python.pydev.analysis\v1_indexcache
+.v1_indexcache
+ServiceSmsInfo.views|0|E:\workspace\ProvincesTest\ServiceSmsInfo\views.py
+SendQuery.views|0|E:\workspace\ProvincesTest\SendQuery\views.py
+ShareMethod.views|0|E:\workspace\ProvincesTest\ShareMethod\views.py
+-- END DISKCACHE
+-- START DICTIONARY
+13
+8=Login.views
+2=ProvincesTest.wsgi
+1=ProvincesTest.settings
+4=OutBox.views
+7=AutoSendConfig.views
+12=PhoneCard.views
+11=SendQuery.views
+10=TestStatistics.views
+6=AdminUser.views
+9=DeliverQuery.views
+5=ServiceSmsInfo.views
+3=ShareMethod.views
+13=ProvincesTest.urls
+-- END DICTIONARY
+-- START TREE 1
+32
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+bas|1|BASE_DIR!11@
+con|7|connDB_login!26@connDB_cdma1!26@connDB_cdma!26@connDB_un!26@connDB_cm!26@connClose!26@connDB_auto!26@
+cur|0|
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+def|1|DEFAULT_CHARSET!11@
+err|1|ErrorLog!26@
+exe|4|exeDelete!26@exeUpdate!26@exeInsert!26@exeQuery!26@
+fai|1|FailureMessage!26@
+fil|3|filename_error!27@filename_info!27@FILE_CHARSET!11@
+ind|1|index!26@
+inf|1|InfoLog!26@
+ins|13|insert_cdma!34@insert_un!34@insert_cdma1!42@insert!50@insert!58@INSTALLED_APPS!11@insert_un!42@insert!42@insert_cm!34@insert_cm!42@insert1_cdma!34@insert_cdma!42@insert!34@
+lan|1|LANGUAGE_CODE!11@
+log|1|login!66@
+mid|1|MIDDLEWARE_CLASSES!11@
+mod|2|modify!58@modify!50@
+pag|1|pagination!26@
+pro|2|proj!19@projs!19@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sel|38|select_cm!74@selectMo_un!82@selectMt_cdma1!82@selectMt_un!82@select!50@selectMo_cm!82@selectMo_cdma1!82@select_mt!82@select_cdma1!74@select_cdma1!90@select_cm!90@select!98@select_auto_un!90@select_un!90@select!90@selectMt_cm!82@select!58@select_cdma!98@selectMo_cdma!82@select_cdma1!98@select_auto_cm!90@select_auto_un!74@select_un!74@select_dianxin!90@select_un!98@selectdx!74@select_cdma!74@select_tdcode!42@select_cdma!90@select_mo!82@select_auto_cdma!74@select_auto_cm!74@select_auto!74@select_auto!90@select_cm!98@select_auto_cdma!90@select!74@selectMt_cdma!82@
+sta|3|STATIC_ROOT!11@STATIC_URL!11@STATIC_PATH!11@
+suc|1|SuccessMessage!26@
+tem|3|TEMPLATE_CONTEXT_PROCESSORS!11@TEMPLATE_DIRS!11@TEMPLATE_DEBUG!11@
+tim|1|TIME_ZONE!11@
+upd|2|update!50@update!58@
+url|1|urlpatterns!107@
+use|3|USE_TZ!11@USE_I18N!11@USE_L10N!11@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+0
+-- END TREE

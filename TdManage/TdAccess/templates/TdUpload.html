@@ -1,0 +1,17 @@
+{% extends "form.html" %}
+{% block title %}通道excel文件上传{% endblock %}
+{% block title1 %}excel文件上传{% endblock %}
+{% block form %}
+				<form action="/tmp/upload" method="post" enctype="multipart/form-data" class="form-horizontal"  id="formID"/>
+							<div class="control-group">
+								<label class="control-label">选择文件:</label>
+								<div class="controls">
+									<input type="file" id="td" name="td" class="validate[required]" />
+									说明：文件格式为excel，每列需要全部为文本格式，文件内容包含标题，每列内容依次为：业务代码、通道名称、客户接收ip、开发协议、网关ip、网关端口、账号、密码、企业代码、服务代码、最大链接数、最大速度、节点编码、客户端口
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">上传</button>
+							</div>
+					</form>
+{% endblock %}

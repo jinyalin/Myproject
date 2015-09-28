@@ -1,0 +1,13 @@
+INSTUPLogAnalysis.views
+E:\workspace\DetailedList\LogAnalysis\views.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0&&2|7|2|0&&2|8|2|0&&2|9|2|0&&2|10|2|0
+clusterSpeed=5
+select_tdSpeed=10
+customerSpeed=4
+customerSubmit=3
+select_server=9
+tdSend=7
+tdOverStock=8
+LogAnalysis.views=2
+clusterTdSend=6
+GateLog=1

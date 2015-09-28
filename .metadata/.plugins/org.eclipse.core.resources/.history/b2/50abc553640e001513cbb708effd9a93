@@ -1,0 +1,132 @@
+from django import forms
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.http.response import HttpResponseRedirect
+import ShareMethod.views
+import time
+import os
+
+def select_cluster(req):
+    flag=req.REQUEST.get('flag','0')
+    print("---flag=-------"+flag+"----------")
+    if flag == '1':
+        allPostCounts = int(req.REQUEST.get('allPostCounts','0'))
+        pageType = req.REQUEST.get('pageType','0')
+        curPage = int(req.REQUEST.get('curPage','1'))
+        allPage = int(req.REQUEST.get('allPage','1'))
+        dbname = 'cluster_server'
+        user_id=req.REQUEST.get('user_id','0')
+        email=req.REQUEST.get('email','0')
+        server = req.REQUEST.get('server','210.14.134.81')
+        NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
+        startTime=req.REQUEST.get('startTime','0')
+        endTime=req.REQUEST.get('endTime','0')
+        sql_1 = "select user_id,sp_number,msg_receive_time,msg_report_time,msg_id,mobile,response,fail_desc,charge_count,replace(replace(replace(replace(msg_content,char(47),''),char(10),''),char(13),''),char(92),'') as msg_content from submit_message_send_catch  where user_id= "
+        sql_2 = "select user_id,sp_number,msg_receive_time,msg_report_time,msg_id,mobile,response,fail_desc,charge_count,replace(replace(replace(replace(msg_content,char(47),''),char(10),''),char(13),''),char(92),'') as msg_content from submit_message_send_history  where user_id= "
+        sql_3 = "select count(*) as count from service_sms_info_catch where user_id= "
+        sql_4 = "select count(*) as count from service_sms_info_history where user_id= "
+        sql_1 += "'"+user_id+"' "
+        sql_2 += "'"+user_id+"' "
+        sql_3 += "'"+user_id+"' "
+        sql_4 += "'"+user_id+"' "
+        if startTime!=endTime:
+            if startTime!='':
+                sql_1 +=" and insert_time >='"+startTime+"'"
+                sql_2 +=" and insert_time >='"+startTime+"'"
+                sql_3 +=" and insert_time >='"+startTime+"'"
+                sql_4 +=" and insert_time >='"+startTime+"'"
+            if endTime!='':
+                sql_1 +=" and insert_time <='"+endTime+"'"
+                sql_2 +=" and insert_time <='"+endTime+"'"
+                sql_3 +=" and insert_time <='"+endTime+"'"
+                sql_4 +=" and insert_time <='"+endTime+"'"
+        else:
+            if startTime!='':
+                sql_1 +=" and insert_time like '"+startTime+"%'"
+                sql_2 +=" and insert_time like '"+startTime+"%'"
+                sql_3 +=" and insert_time like '"+startTime+"%'"
+                sql_4 +=" and insert_time like '"+startTime+"%'"
+                
+        sql=sql_1+" union "+sql_2
+        sql += " order by msg_receive_time desc " 
+        print (sql)
+        if allPostCounts == 0:
+            conn1,cur1=ShareMethod.views.connDB_yw(server,dbname)
+            conn2,cur2=ShareMethod.views.connDB_yw(server,dbname)
+            ShareMethod.views.exeQuery(cur1,sql_1)
+            ShareMethod.views.exeQuery(cur2,sql_2)
+            for row1 in cur1:
+                allPostCount1 = row1[0]
+            for row2 in cur2:
+                allPostCount2 = row2[0]
+
+            allPostCounts=int(allPostCount1)+int(allPostCount2)
+            
+            ShareMethod.views.connClose(conn1,cur1)
+            ShareMethod.views.connClose(conn2,cur2)
+            
+        table_list,allPage,curPage,allPostCounts,pageList,sql = ShareMethod.views.pagination(sql, pageType, curPage, allPostCounts)
+    
+        print(curPage)
+        print(allPage)
+        conn,cur=ShareMethod.views.connDB_yw(server,dbname)
+        ShareMethod.views.exeQuery(cur,sql) 
+        for row in cur:
+            table_list.append({'user_id':row[0],'sp_number':row[1],'msg_receive_time':row[2],'msg_report_time':row[3],'msg_id':row[4],'mobile':row[5],'response':row[6],'fail_desc':row[7],'charge_count':row[8],'msg_content':row[9]})
+        ShareMethod.views.connClose(conn,cur)
+        return render_to_response('SmsCluster.html',locals())
+    else:
+        return render_to_response('SmsCluster.html')
+
+
+def export_cluster(req):
+    dbname = 'cluster_server'
+    direct = "SmsCluster/select_cluster.do"
+    user = "bjxtb"
+    path = "/tmp/"
+    server = req.REQUEST.get('server','210.14.134.81')
+    operatorName=req.session.get('username')
+    user_id=req.REQUEST.get('user_id','0')
+    NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
+    NowDate = time.strftime('%Y%m%d%H%M%S')
+    startTime=req.REQUEST.get('startTime',NowDate)
+    endTime=req.REQUEST.get('endTime',NowDate)
+    email=req.REQUEST.get('email','0')
+    sql_1 = "select user_id,sp_number,msg_receive_time,msg_report_time,msg_id,mobile,response,fail_desc,charge_count,replace(replace(replace(replace(msg_content,char(47),''),char(10),''),char(13),''),char(92),'') as msg_content from submit_message_send_catch  where user_id= "
+    sql_2 = "select user_id,sp_number,msg_receive_time,msg_report_time,msg_id,mobile,response,fail_desc,charge_count,replace(replace(replace(replace(msg_content,char(47),''),char(10),''),char(13),''),char(92),'') as msg_content from submit_message_send_history  where user_id= "
+    sql_1 += "'"+user_id+"' "
+    sql_2 += "'"+user_id+"' "
+    
+    if startTime!=endTime:
+        if startTime!='':
+            sql_1 +=" and insert_time >='"+startTime+"'"
+            sql_2 +=" and insert_time >='"+startTime+"'"
+        if endTime!='':
+            sql_1 +=" and insert_time <='"+endTime+"'"
+            sql_2 +=" and insert_time <='"+endTime+"'"
+    else:
+        if startTime!='':
+            sql_1 +=" and insert_time like '"+startTime+"%'"
+            sql_2 +=" and insert_time like '"+startTime+"%'"
+            
+    sql=sql_1+" union "+sql_2       
+    
+    FilePath1 = path+user_id+"_"+NowDate+".xls"
+    TarPath = path+user_id+"_"+NowDate+".xls.tar.gz"
+    
+    sql += " into outfile '"+FilePath1+"'"
+    print (sql)
+    try:
+        conn,cur=ShareMethod.views.connDB_yw(server,dbname)
+        ShareMethod.views.exeQuery(cur,sql)
+        ShareMethod.views.connClose(conn,cur)
+        print("ssh "+user+"@"+server+" tar -Pzcvf "+TarPath+" "+FilePath1)
+        os.system("ssh "+user+"@"+server+" tar -Pzcvf "+TarPath+" "+FilePath1)
+        print("ssh "+user+"@"+server+" /usr/local/bin/sendEmail -f nagios@baiwutong.com -t "+email+" -s mail.baiwutong.com -u '详单调取'   -a "+TarPath +" -xu nagios@baiwutong.com  -xp hskj707")
+        os.system("ssh "+user+"@"+server+" /usr/local/bin/sendEmail -f nagios@baiwutong.com -t "+email+" -s mail.baiwutong.com -u '详单调取'  -m '您好，附件为您提取的详单，请查阅~'  -a "+TarPath +" -xu nagios@baiwutong.com  -xp hskj707")
+        
+    except Exception as e:
+        ShareMethod.views.ErrorLog(str(e)+"操作人："+operatorName)
+        return HttpResponseRedirect('../FailureMessage.do?message='+direct)
+    ShareMethod.views.InfoLog(sql+"操作人："+operatorName)
+    return HttpResponseRedirect('../SuccessMessage.do?message='+direct)

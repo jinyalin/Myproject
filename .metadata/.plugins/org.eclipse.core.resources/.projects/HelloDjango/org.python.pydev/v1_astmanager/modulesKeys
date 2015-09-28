@@ -1,0 +1,11 @@
+MODULES_MANAGER_V2
+HelloDjango.__init__|E:\workspace\HelloDjango\HelloDjango\__init__.py
+HelloDjango.settings|E:\workspace\HelloDjango\HelloDjango\settings.py
+HelloDjango.urls|E:\workspace\HelloDjango\HelloDjango\urls.py
+HelloDjango.wsgi|E:\workspace\HelloDjango\HelloDjango\wsgi.py
+blog.__init__|E:\workspace\HelloDjango\blog\__init__.py
+blog.admin|E:\workspace\HelloDjango\blog\admin.py
+blog.models|E:\workspace\HelloDjango\blog\models.py
+blog.tests|E:\workspace\HelloDjango\blog\tests.py
+blog.views|E:\workspace\HelloDjango\blog\views.py
+manage|E:\workspace\HelloDjango\manage.py

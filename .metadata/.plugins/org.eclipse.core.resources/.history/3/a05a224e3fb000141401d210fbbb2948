@@ -1,0 +1,38 @@
+from django.conf.urls import patterns, include, url
+from django.conf import settings
+
+#from django.contrib import admin
+#admin.autodiscover()
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'MonitorSystem.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^.*static/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_PATH}),
+    url(r'^index', 'ShareMethod.views.index'),
+    url(r'^login', 'Login.views.login'),
+    url(r'^logout$', 'Login.views.logout'),
+    url(r'^NoticeInfo/select', 'NoticeType.views.select'),
+    url(r'^NoticeInfo/insert', 'NoticeType.views.insert'),
+    url(r'^NoticeInfo/update', 'NoticeType.views.update'),
+    url(r'^NoticeInfo/modify', 'NoticeType.views.modify'),
+    url(r'^NoticeInfo/delete', 'NoticeType.views.delete'),
+    url(r'^MonitorInfo/select', 'MonitorInfo.views.select'),
+    url(r'^MonitorInfo/insert', 'MonitorInfo.views.insert'),
+    url(r'^MonitorInfo/update', 'MonitorInfo.views.update'),
+    url(r'^MonitorInfo/modify', 'MonitorInfo.views.modify'),
+    url(r'^MonitorInfo/delete', 'MonitorInfo.views.delete'),
+    url(r'^ServerInfo/select', 'ServerInfo.views.select'),
+    url(r'^ServerInfo/insert', 'ServerInfo.views.insert'),
+    url(r'^ServerInfo/update', 'ServerInfo.views.update'),
+    url(r'^ServerInfo/modify', 'ServerInfo.views.modify'),
+    url(r'^ServerInfo/delete', 'ServerInfo.views.delete'),
+    url(r'^ServerMonitorInfo/select', 'ServerMonitorInfo.views.select'),
+    url(r'^ServerMonitorInfo/insert', 'ServerMonitorInfo.views.insert'),
+    url(r'^ServerMonitorInfo/update', 'ServerMonitorInfo.views.update'),
+    url(r'^ServerMonitorInfo/modify', 'ServerMonitorInfo.views.modify'),
+    url(r'^ServerMonitorInfo/delete', 'ServerMonitorInfo.views.delete'),
+    
+)

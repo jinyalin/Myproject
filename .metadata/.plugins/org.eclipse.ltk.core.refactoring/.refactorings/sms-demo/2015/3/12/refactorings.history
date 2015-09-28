@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;sms-demo/src/tcpMonitor&apos; to &apos;tcpMonitor.py&apos;" description="Rename resource &apos;tcpMonitor&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/tcpMonitor" name="tcpMonitor.py" stamp="1426851418883" updateReferences="true"/>
+</session>

@@ -1,0 +1,78 @@
+-- VERSION_3
+-- START DISKCACHE
+E:\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\MysqlTest\com.python.pydev.analysis\v1_indexcache
+.v1_indexcache
+MonitorInfo.views|0|E:\workspace\MysqlTest\MonitorInfo\views.py
+MysqlTest.settings|0|E:\workspace\MysqlTest\MysqlTest\settings.py
+ServerMonitorInfo.views|0|E:\workspace\MysqlTest\ServerMonitorInfo\views.py
+-- END DISKCACHE
+-- START DICTIONARY
+13
+1=NoticeType.tests
+4=MysqlTest.wsgi
+3=MysqlTest.settings
+9=MysqlTest.urls
+12=ServerMonitorInfo
+10=bbb
+11=MonitorInfo
+5=NoticeType.models
+13=NoticeType
+7=MonitorInfo.views
+6=NoticeType.views
+2=ShareMethod.views
+8=ServerMonitorInfo.views
+-- END DICTIONARY
+-- START TREE 1
+31
+aft|2|after_range_num!11@after_range_num!19@
+all|1|ALLOWED_HOSTS!27@
+app|1|application!35@
+bas|1|BASE_DIR!27@
+bbb|1|bbb!41@
+bef|2|befor_range_num!11@befor_range_num!19@
+con|4|content_list!11@content_list!19@connClose!18@connDB!18@
+dat|1|DATABASES!27@
+deb|1|DEBUG!27@
+del|2|delete!50@delete!58@
+exe|4|exeDelete!18@exeUpdate!18@exeInsert!18@exeQuery!18@
+id|2|id!59@id!51@
+ins|3|INSTALLED_APPS!27@insert!50@insert!58@
+lan|1|LANGUAGE_CODE!27@
+mid|1|MIDDLEWARE_CLASSES!27@
+mod|3|modify!50@modify!58@modify!66@
+mon|1|MonitorInfo!57@
+not|1|NoticeType!49@
+pag|8|paginator!19@pagination!10@page_range!11@paginator!11@page_range!19@page!11@page!19@pagination!18@
+roo|1|ROOT_URLCONF!27@
+sec|1|SECRET_KEY!27@
+sel|3|select!58@select!50@select!66@
+ser|1|ServerMonitorInfo!65@
+sql|2|sql!51@sql!59@
+sta|2|STATIC_URL!27@STATIC_PATH!27@
+tem|1|TEMPLATE_DEBUG!27@
+tim|1|TIME_ZONE!27@
+upd|3|update!50@update!66@update!58@
+url|1|urlpatterns!75@
+use|3|USE_TZ!27@USE_I18N!27@USE_L10N!27@
+wsg|1|WSGI_APPLICATION!27@
+-- END TREE
+-- START TREE 2
+17
+__s|1|__str__!10&42@
+ala|1|alarm_type!11&59@
+com|1|comment!11&59@
+cus|1|customer_sn!10&43@
+exp|1|expect_result!11&59@
+fre|1|frequency!12&67@
+id|0|
+ins|0|
+las|1|last_time!12&67@
+mak|1|make!12&67@
+mob|1|mobiles!13&51@
+mon|2|monitor_sql!11&59@monitor_sn!12&67@
+ser|2|server_sn!12&67@server_id!10&43@
+sta|1|status!12&67@
+typ|4|type!11&59@type_desc!13&51@type!12&67@type!13&51@
+val|1|value!12&67@
+war|1|warning_content!11&59@
+-- END TREE

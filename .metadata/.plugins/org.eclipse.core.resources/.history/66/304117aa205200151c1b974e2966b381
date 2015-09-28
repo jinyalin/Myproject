@@ -1,0 +1,102 @@
+#!/usr/bin/python
+# encoding: utf-8
+from urllib.parse import urlencode
+from httplib2 import Http
+import pymysql
+import datetime
+import time
+import logging
+import socket
+
+def connDB():
+    #conn = pymysql.Connect(host='210.14.134.77',port=13306,user='notice_plate',passwd='hskj&U*I(O1207',db='monitor',charset='utf8')
+    conn = pymysql.Connect(host='210.14.134.77',port=13306,user='notice_plate',passwd='hskj&U*I(O1207',db='monitor',charset='utf8')
+    cur = conn.cursor()
+    return conn,cur
+def exeQuery(cur,sql):
+    cur.execute(sql)
+    return(cur)
+def exeUpdate(cur,sql):
+    sta=cur.execute(sql)
+    return (sta)
+def connClose(conn,cur):
+    cur.close()
+    conn.close()
+def exeInsert(cur,sql):
+    cur.execute(sql)
+    return(cur)
+if  socket.gethostname() == 'vm-ywcs03':
+    filename_info='./log/'+datetime.datetime.now().strftime("%Y-%m-%d")+'.info.log'
+    filename_error='./log/'+datetime.datetime.now().strftime("%Y-%m-%d")+'.error.log'
+else:
+    filename_info="E:\workspace\sms-demo\info.log"
+    filename_error="E:\workspace\sms-demo\error.log"
+def InfoLog(message):
+    #format='%(asctime)s - %(levelname)s - %(message)s'
+    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s'
+    logging.basicConfig(filename=filename_info, level=logging.INFO , format=format)
+    logging.info(message)
+
+def ErrorLog(message):
+    #format='%(asctime)s - %(pathname)s - %(filename)s - [line:%(lineno)d] - %(levelname)s - %(message)s'
+    format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s'
+    logging.basicConfig(filename=filename_error, level=logging.ERROR , format=format)
+    logging.error(message)
+
+if __name__=="__main__":
+    http = Http()
+    headers={'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
+    while True:
+        conn1,cur1 = connDB()
+        sql1 = "select * from protocol_monitor where status=0"
+        exeQuery(cur1,sql1)
+        for row in cur1:
+            method = row[2]
+            url = str(row[3])+"?"
+            body = eval(row[4])
+            response = row[5]
+            frequence = int(row[6])
+            last_time = row[8]
+
+            date1 = datetime.datetime.now()
+            date11 = date1.strftime("%Y-%m-%d %H:%M:%S")
+            endtime = datetime.datetime.strptime(date11, "%Y-%m-%d %H:%M:%S")
+            starttime = last_time
+            seconds = (endtime-starttime).seconds
+            content = ""
+            if seconds >= frequence:
+                try:
+                    resptime_start = datetime.datetime.now()
+                    resp, content = http.request(url,method,urlencode(body), headers=headers)
+                    print(resp,content)
+                    resptime_end = datetime.datetime.now()
+                    respseconds = (resptime_end-resptime_start).microseconds / 1000
+                    print("响应时间:",respseconds,"ms")
+                    conn2,cur2 = connDB()
+                    sql2 = "update protocol_monitor set last_time = '" + str(endtime) + "'"
+                    exeUpdate(cur2,sql2)
+                    connClose(conn2,cur2)
+                    if content:
+                        response_status = content.decode()
+                        if response_status  == response :
+                            InfoLog(url+"访问正常,响应时间:"+str(respseconds)+"ms")
+                        else:
+                            ErrorLog(url+"访问异常,访问返回错误码："+str(response_status)+"和期望的错误码"+str(response)+"不符")
+                            NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
+                            conn3,cur3 = connDB()
+                            content=url+"访问返回值与期望不符，请查看日志/hskj/web/Monitor/log~"
+                            sql3 = "insert into notice_info(content,alarm_type,alarm_value,status,insert_time) values('" + content +"','sms','13261289750',0,'"+NowTime+"')"
+                            exeInsert(cur3,sql3)
+                            connClose(conn3,cur3)
+                            
+                except Exception as e:
+                    print(e)
+                    conn3,cur3 = connDB()
+                    NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
+                    ErrorLog("访问异常，"+str(e))
+                    sql3 = "insert into notice_info(content,alarm_type,alarm_value,status,insert_time) values('" + str(e) +"','sms','13261289750',0,'"+NowTime+"')"
+                    exeInsert(cur3,sql3)
+                    connClose(conn3,cur3)
+                    time.sleep(10)
+        connClose(conn1,cur1)
+       # time.sleep(30)

@@ -1,0 +1,69 @@
+{% extends "table1.html" %}
+{% block title %}运维工作分配表{% endblock %}
+
+{% block title1 %}服务器分配表{% endblock %}
+							
+{% block thread %}
+										<tr>
+											<th nowrap="nowrap">业务负责组</th>
+											<th nowrap="nowrap">责任人</th>
+											<th>负责服务器</th>
+											<th>负责机房</th>
+											<th nowrap="nowrap">代理人</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for manager in table_list %}
+										<tr>
+											<td>{{manager.group_mark}}</td>
+											<td  nowrap="nowrap" ><B>{{manager.group_name}}</B></td>
+											<td style="word-break:break-all; word-wrap: break-word;width:40%">{{manager.server_name}}</td>
+											<td>{{manager.server_room}}</td>
+											<td>{{manager.agent_name}}</td>
+										</tr>
+										{% endfor %}
+										
+{% endblock %}
+{% block thread2 %}
+										<tr>
+											<th>业务负责组</th>
+											<th>责任人</th>
+											<th nowrap="nowrap">服务客服</th>
+											<th nowrap="nowrap">代理人</th>
+										</tr>
+{% endblock %}
+{% block title2 %}技术支持分配表 {% endblock %}
+{% block tbody2 %}
+										<tr>
+											<td>运维1组</td>
+											<td>仉晓甜</td>
+											<td nowrap="nowrap">姜云平、游志娜、陈慧玲</td>
+											<td nowrap="nowrap">1组其他成员</td>
+										</tr>
+										<tr>
+											<td>运维1组</td>
+											<td>郭小蕾</td>
+											<td nowrap="nowrap">申杨、李文莉、袁媛、郭阳</td>
+											<td nowrap="nowrap">1组其他成员</td>
+										</tr>
+										<tr>
+											<td>运维2组</td>
+											<td>马利民</td>
+											<td nowrap="nowrap">高燕、胥海利、赵静、徐婷婷</td>
+											<td nowrap="nowrap">2组其他成员</td>
+										</tr>
+										<tr>
+											<td>运维2组</td>
+											<td>王文克</td>
+											<td nowrap="nowrap">王志芳、裴小超、秦荣华、王彩霞、杨莹</td>
+											<td nowrap="nowrap">2组其他成员</td>
+										</tr>
+										<tr>
+											<td>运维2组</td>
+											<td>吴云</td>
+											<td nowrap="nowrap">李阳、穆玉亭、曾朝露、张春妮、杨双梅</td>
+											<td nowrap="nowrap">2组其他成员</td>
+										</tr>
+										
+{% endblock %}

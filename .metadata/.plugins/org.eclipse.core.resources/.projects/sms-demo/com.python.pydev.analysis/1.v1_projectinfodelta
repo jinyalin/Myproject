@@ -1,0 +1,15 @@
+INSTUPssh_test
+E:\workspace\sms-demo\src\ssh_test.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&3|5|2|0&&3|6|2|0&&3|7|2|0&&3|8|2|0&&3|9|2|0&&3|10|2|0&&3|11|2|0&&3|12|2|0&&3|8|2|0&&3|10|2|0&&3|8|2|0&&3|10|2|0&&3|8|2|0&&3|10|2|0&&3|8|2|0&&3|10|2|0&&3|9|2|0&&3|8|2|0
+gline=12
+lname=5
+mainMethod=4
+keydir=7
+sigwinch_passthrough=1
+flag=8
+name=6
+fu=11
+getwinsize=3
+group=9
+user=10
+ssh_test=2

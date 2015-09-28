@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MysqlTest/OperateMysql/DB.py&apos; to &apos;db.py&apos;" description="Rename resource &apos;DB.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="OperateMysql/DB.py" name="db.py" stamp="1420722014074" updateReferences="true"/>
+</session>

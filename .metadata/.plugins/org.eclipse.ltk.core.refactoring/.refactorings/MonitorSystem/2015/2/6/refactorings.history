@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MonitorSystem/ShareMethod/templates/frame1.html&apos; to &apos;index.html&apos;" description="Rename resource &apos;frame1.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ShareMethod/templates/frame1.html" name="index.html" stamp="1423117187774" updateReferences="true"/>
+</session>

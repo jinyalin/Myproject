@@ -1,0 +1,90 @@
+from django import forms
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.http.response import HttpResponseRedirect
+import ShareMethod.views
+import time
+import os
+
+def CommandQuery(req):
+    command = req.REQUEST.get('command','0')
+    print("---flag=-------"+flag+"----------")
+    if flag == '1':
+        allPostCounts = int(req.REQUEST.get('allPostCounts','0'))
+        pageType = req.REQUEST.get('pageType','0')
+        curPage = int(req.REQUEST.get('curPage','1'))
+        allPage = int(req.REQUEST.get('allPage','1'))
+        user_id=req.REQUEST.get('user_id','0')
+        sp_number=req.REQUEST.get('sp_number','0')
+        email=req.REQUEST.get('email','0')
+        server = req.REQUEST.get('server','0')
+        print("server:%s,user_id:%s"%(server,user_id))
+        NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
+        startTime=req.REQUEST.get('startTime','0')
+        endTime=req.REQUEST.get('endTime','0')
+        user_sn = '0'
+        conn3,cur3=ShareMethod.views.connDB_yw(server,dbname)
+        sql3 = "select user_sn from "+usertable+" where user_id='"+user_id+"' limit 1"
+        ShareMethod.views.exeQuery(cur3,sql3)
+        for row3 in cur3:
+            user_sn = row3[0]
+        sql_1 = "select sp_number,mobile,msg_receiveTime,msg_reportTime,msg_id,response,1000,'未知',charge_count,replace(replace(replace(replace(msg_content,char(47),''),char(10),''),char(13),''),char(92),'') as msg_content  from submit_message_send_catch  where user_sn= "
+        sql_2 = "select sp_number,mobile,msg_receiveTime,msg_reportTime,msg_id,response,err,fail_desc,charge_count,replace(replace(replace(replace(msg_content,char(47),''),char(10),''),char(13),''),char(92),'') as msg_content  from submit_message_send_history  where user_sn= "
+        sql_3 = "select count(*) as count from submit_message_send_catch where user_sn= "
+        sql_4 = "select count(*) as count from submit_message_send_history where user_sn= "
+        sql_1 += str(user_sn)
+        sql_2 += str(user_sn)
+        sql_3 += str(user_sn)
+        sql_4 += str(user_sn)
+        
+        if startTime!=endTime:
+            if startTime!='':
+                sql_1 +=" and msg_receiveTime >='"+startTime+"'"
+                sql_2 +=" and msg_receiveTime >='"+startTime+"'"
+                sql_3 +=" and msg_receiveTime >='"+startTime+"'"
+                sql_4 +=" and msg_receiveTime >='"+startTime+"'"
+            if endTime!='':
+                sql_1 +=" and msg_receiveTime <='"+endTime+"'"
+                sql_2 +=" and msg_receiveTime <='"+endTime+"'"
+                sql_3 +=" and msg_receiveTime <='"+endTime+"'"
+                sql_4 +=" and msg_receiveTime <='"+endTime+"'"
+        else:
+            if startTime!='':
+                sql_1 +=" and msg_receiveTime like '"+startTime+"%'"
+                sql_2 +=" and msg_receiveTime like '"+startTime+"%'"
+                sql_3 +=" and msg_receiveTime like '"+startTime+"%'"
+                sql_4 +=" and msg_receiveTime like '"+startTime+"%'"
+                
+        sql=sql_1+" union "+sql_2
+        sql += " order by msg_receiveTime desc " 
+        print(sql) 
+        if allPostCounts == 0:
+            conn1,cur1=ShareMethod.views.connDB_yw(server,dbname)
+            conn2,cur2=ShareMethod.views.connDB_yw(server,dbname)
+            ShareMethod.views.exeQuery(cur1,sql_3)
+            ShareMethod.views.exeQuery(cur2,sql_4)
+            for row1 in cur1:
+                allPostCount1 = row1[0]
+            for row2 in cur2:
+                allPostCount2 = row2[0]
+
+            allPostCounts=int(allPostCount1)+int(allPostCount2)
+            
+            ShareMethod.views.connClose(conn1,cur1)
+            ShareMethod.views.connClose(conn2,cur2)
+            
+        table_list,allPage,curPage,allPostCounts,pageList,sql = ShareMethod.views.pagination(sql, pageType, curPage, allPostCounts)
+    
+        print(curPage)
+        print(allPage)
+        conn,cur=ShareMethod.views.connDB_yw(server,dbname)
+        ShareMethod.views.exeQuery(cur,sql) 
+        for row in cur:
+            table_list.append({'sp_number':row[0],'mobile':row[1],'msg_receiveTime':row[2],'msg_reportTime':row[3],'msg_id':row[4],'response':row[5],'err':row[6],'fail_desc':row[7],'charge_count':row[8],'msg_content':row[9]})
+        ShareMethod.views.connClose(conn,cur)
+        server_list = select_server(req,type)
+        return render_to_response(html,locals())
+    else:
+        server_list = select_server(req,type)
+        print(server_list)
+        return render_to_response(html,locals())

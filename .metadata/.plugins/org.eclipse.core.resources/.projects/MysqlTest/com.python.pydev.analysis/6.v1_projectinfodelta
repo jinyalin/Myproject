@@ -1,0 +1,16 @@
+INSTUPMonitorInfo.views
+E:\workspace\MysqlTest\MonitorInfo\views.py
+INFOS:&&1|1|2|0&&3|3|2|1&&3|4|2|1&&3|5|2|1&&3|6|2|1&&3|7|2|1&&3|6|2|1&&3|8|2|1&&2|9|2|0&&2|10|2|0&&2|11|2|0&&2|12|2|0&&2|13|2|0
+update=10
+alarm_type=8
+select=13
+expect_result=6
+modify=11
+monitor_sql=3
+type=7
+MonitorInfo=1
+MonitorInfo.views=2
+delete=12
+warning_content=4
+comment=5
+insert=9

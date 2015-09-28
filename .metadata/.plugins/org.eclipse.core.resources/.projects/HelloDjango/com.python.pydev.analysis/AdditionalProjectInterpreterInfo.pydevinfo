@@ -1,0 +1,62 @@
+-- VERSION_3
+-- START DISKCACHE
+E:\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\HelloDjango\com.python.pydev.analysis\v1_indexcache
+.v1_indexcache
+HelloDjango.urls|0|E:\workspace\HelloDjango\HelloDjango\urls.py
+HelloDjango.settings|0|E:\workspace\HelloDjango\HelloDjango\settings.py
+blog.tests|0|E:\workspace\HelloDjango\blog\tests.py
+HelloDjango.__init__|0|E:\workspace\HelloDjango\HelloDjango\__init__.py
+blog.views|0|E:\workspace\HelloDjango\blog\views.py
+blog.models|0|E:\workspace\HelloDjango\blog\models.py
+manage|0|E:\workspace\HelloDjango\manage.py
+blog.admin|0|E:\workspace\HelloDjango\blog\admin.py
+blog.__init__|0|E:\workspace\HelloDjango\blog\__init__.py
+HelloDjango.wsgi|0|E:\workspace\HelloDjango\HelloDjango\wsgi.py
+-- END DISKCACHE
+-- START DICTIONARY
+11
+8=User
+6=Book
+5=HelloDjango.urls
+1=HelloDjango.settings
+4=blog.views
+7=Author
+3=blog.models
+10=Employee
+2=HelloDjango.wsgi
+9=Blog
+11=UserForm
+-- END DICTIONARY
+-- START TREE 1
+22
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+aut|1|Author!25@
+bas|1|BASE_DIR!11@
+blo|1|Blog!25@
+boo|1|Book!25@
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+emp|1|Employee!25@
+ins|1|INSTALLED_APPS!11@
+lan|1|LANGUAGE_CODE!11@
+mid|1|MIDDLEWARE_CLASSES!11@
+reg|1|register!34@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sex|1|sex_choices!27@
+sta|1|STATIC_URL!11@
+tem|1|TEMPLATE_DEBUG!11@
+tim|1|TIME_ZONE!11@
+url|1|urlpatterns!43@
+use|5|USE_TZ!11@User!25@USE_I18N!11@UserForm!33@USE_L10N!11@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+5
+__s|5|__str__!6&26@__str__!7&26@__str__!8&26@__str__!9&26@__str__!10&26@
+aut|1|authors!6&27@
+ent|1|entry!9&27@
+nam|6|name!6&27@name!7&27@name!8&27@name!9&27@name!10&27@name!11&35@
+sex|1|sex!8&27@
+-- END TREE

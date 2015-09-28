@@ -1,0 +1,61 @@
+{% extends "table.html" %}
+{% block title %}预警信息{% endblock %}
+{% block title1 %}最新预警展示{% endblock %}
+
+{% block form %}
+	<form action="select.do" method="post" class="form-inline" />
+					<select name="search">
+						<option value="0">请选择</option>
+						<option value="content">预警内容</option>
+						<option value="comment">描述</option>
+					</select>
+                                                   起止时间：<input type="text" data-date-format="yyyy-mm-dd" value="" class="datepicker" name="startTime"/> - <input type="text" data-date-format="yyyy-mm-dd" value="" class="datepicker"  name ="endTime"/>
+					<input type="text" name="value" placeholder="查询关键词"/>
+					<input type="submit" class="btn"  value="查询" />
+ 	</form>	
+				
+{% endblock %}
+
+{% block thread %}
+						
+										<tr>
+											<th>ID</th>
+											<th>预警内容</th>
+											<th>预警类型</th>
+											<th>预警接收人</th>
+											<th>预警描述</th>
+											<th>发送状态</th>
+											<th>预警时间</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										
+										{% for mobile in table_list.object_list %}
+										<tr>
+											<td>{{mobile.id}}</td>
+											<td>{{mobile.content}}</td>
+											{% if mobile.alarm_type == 'sms' %}
+											<td>短信</td>
+											{% elif mobile.alarm_type == 'phone'  %}
+											<td>电话</td>
+											{% elif mobile.alarm_type == 'screen'  %}
+											<td>弹屏</td>
+											{% elif mobile.alarm_type == 'email'  %}
+											<td>邮件</td>
+											{% elif mobile.alarm_type == 'app'  %}
+											<td>APP</td>
+											{% endif %}
+											<td>{{mobile.alarm_value}}</td>
+											<td nowrap="nowrap">{{mobile.comment}}</td>
+											{% if mobile.status == 0 %}
+											<td nowrap="nowrap">未发送</td>
+										    {% else %}
+											<td nowrap="nowrap">已发送</td>
+											{% endif %}
+											<td>{{mobile.insert_time|date:"Y-m-d H:i:s"}}</td>
+										</tr>
+										{% endfor %}
+
+{% endblock %}						
+				

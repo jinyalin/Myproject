@@ -1,0 +1,92 @@
+-- VERSION_3
+-- START DISKCACHE
+E:\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\DetailedList\com.python.pydev.analysis\v1_indexcache
+.v1_indexcache
+CommandQuery.views|0|E:\workspace\DetailedList\CommandQuery\views.py
+SmsCluster.views|0|E:\workspace\DetailedList\SmsCluster\views.py
+LogAnalysis.views|0|E:\workspace\DetailedList\LogAnalysis\views.py
+ShareMethod.views|0|E:\workspace\DetailedList\ShareMethod\views.py
+-- END DISKCACHE
+-- START DICTIONARY
+15
+2=DetailedList.wsgi
+11=Login.views
+12=DetailedList.urls
+15=worker.stop
+4=CommandQuery.views
+7=SmsGate.views
+1=DetailedList.settings
+9=MmsSp.views
+14=worker.__init__
+8=SmsSp.views
+13=worker
+6=SmsCluster.views
+3=LogAnalysis.views
+5=ShareMethod.views
+10=SmsSP.views
+-- END DICTIONARY
+-- START TREE 1
+45
+!<m|0|
+all|1|ALLOWED_HOSTS!11@
+app|1|application!19@
+bas|1|BASE_DIR!11@
+clu|2|clusterSpeed!26@clusterTdSend!26@
+com|1|CommandQuery!34@
+con|4|connDB_yw!42@connClose!42@connDB_ssh!42@connDB_plate!42@
+cur|0|
+cus|2|customerSpeed!26@customerSubmit!26@
+dat|1|DATABASES!11@
+deb|1|DEBUG!11@
+def|1|DEFAULT_CHARSET!11@
+dir|0|
+err|1|ErrorLog!42@
+exe|4|exeDelete!42@exeUpdate!42@exeInsert!42@exeQuery!42@
+exp|8|export_cluster!50@export_cmpp!58@export_sgip!58@export_SmsSp!66@export!66@export_gate!58@export_cluster!74@export_smgp!58@
+fai|1|FailureMessage!42@
+fil|3|FILE_CHARSET!11@filename_error!43@filename_info!43@
+gat|1|GateLog!26@
+ind|1|index!42@
+inf|1|InfoLog!42@
+ins|2|INSTALLED_APPS!11@insert!82@
+key|0|
+lan|1|LANGUAGE_CODE!11@
+log|2|logout!90@login!90@
+mid|1|MIDDLEWARE_CLASSES!11@
+mod|1|modify!82@
+pag|1|pagination!42@
+pro|2|projs!19@proj!19@
+roo|1|ROOT_URLCONF!11@
+sec|1|SECRET_KEY!11@
+sel|12|select_server!58@select_SmsSp!66@select_cluster!74@select!82@select_cmpp!58@select_smgp!58@select_tdSpeed!26@select_cluster!50@select_server!26@select_sgip!58@select_server!66@select_gate!58@
+ser|0|
+sql|0|
+sta|3|STATIC_URL!11@STATIC_PATH!11@STATIC_ROOT!11@
+suc|1|SuccessMessage!42@
+tdo|1|tdOverStock!26@
+tds|1|tdSend!26@
+tem|2|TEMPLATE_DIRS!11@TEMPLATE_DEBUG!11@
+tim|1|TIME_ZONE!11@
+upd|1|update!82@
+url|1|urlpatterns!99@
+use|3|USE_TZ!11@USE_L10N!11@USE_I18N!11@
+wor|1|worker!33@
+wsg|1|WSGI_APPLICATION!11@
+-- END TREE
+-- START TREE 2
+14
+__i|1|__init__!13&34@
+com|1|command!14&35@
+ech|0|
+hos|0|
+key|0|
+pas|0|
+pke|1|pkey_file!14&35@
+por|1|port!14&35@
+run|1|run!13&34@
+ser|1|server!14&35@
+sto|1|stop!13&34@
+tab|1|table_list!14&35@
+thr|2|thread_stop!15&35@thread_stop!14&35@
+use|1|username!14&35@
+-- END TREE

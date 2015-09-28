@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TdManage/TdAccess/templates/SQselect_un.html&apos; to &apos;TdUpload.html&apos;" description="Rename resource &apos;SQselect_un.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="TdAccess/templates/SQselect_un.html" name="TdUpload.html" stamp="1434417190662" updateReferences="true"/>
+</session>

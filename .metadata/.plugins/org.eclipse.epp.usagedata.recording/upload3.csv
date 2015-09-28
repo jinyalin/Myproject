@@ -1,0 +1,251 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419593721690
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593730176
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593772306
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419593799747
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593815718
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593850332
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419593857755
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419593877883
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419593900011
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593907246
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593914310
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419593933937
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419593945220
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419593950361
+started,bundle,org.eclipse.wst.xsl.core,1.1.0.v201004290328,"org.eclipse.wst.xsl.core",1419593956659
+started,bundle,org.eclipse.wst.xsl.exslt.core,1.0.0.v201005240426,"org.eclipse.wst.xsl.exslt.core",1419593956674
+started,bundle,org.eclipse.wst.dtd.core,1.1.401.v201101122255,"org.eclipse.wst.dtd.core",1419593957049
+started,bundle,org.eclipse.wst.internet.cache,1.0.400.v201004280700,"org.eclipse.wst.internet.cache",1419593957237
+started,bundle,org.eclipse.jst.jsf.facelet.core,1.0.2.v201101042130,"org.eclipse.jst.jsf.facelet.core",1419593961112
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593961284
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593965362
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419593993629
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593997035
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593997050
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419593997113
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594002629
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594006270
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594006270
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594007113
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594011270
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594012020
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594012988
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419594014051
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594018176
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594018739
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594020848
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594030442
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594031708
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594031723
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594035442
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419594039724
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594041989
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594043974
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594048333
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594054443
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594055412
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594064162
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594065553
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594065975
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594070256
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594089397
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594092163
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594092163
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594094194
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594098522
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594104898
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594122695
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594122695
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594123758
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419594127211
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594129258
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594132774
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594134305
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594139321
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594154665
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594156977
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594159009
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594161821
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594162728
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594163150
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1419594167775
+activated,view,org.python.pydev,2.8.1.2013072611,"org.python.pydev.navigator.view",1419594171353
+executed,command,,,"org.python.pydev.django.launching.DjangoLaunchShortcut.run",1419594173994
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594180306
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594187432
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594188369
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594188760
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594195322
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594195322
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594200229
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419594202135
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594204010
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594218620
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594221605
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594224261
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594229136
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594231214
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594239043
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594247058
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594247809
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594252606
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594262496
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594264746
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.delete",1419594266449
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.delete",1419594266965
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594267043
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.delete",1419594267356
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.delete",1419594267699
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.delete",1419594267934
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594269449
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594270293
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594275199
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.cut",1419594283512
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594285902
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594286793
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594288590
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594288934
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594289684
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594291496
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594291606
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594296777
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594297590
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594307543
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594312543
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594316246
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594318309
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594322090
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594322965
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594323340
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1419594324027
+activated,view,org.python.pydev,2.8.1.2013072611,"org.python.pydev.navigator.view",1419594328121
+executed,command,,,"org.python.pydev.django.launching.DjangoLaunchShortcut.run",1419594330715
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594336590
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594341621
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594342340
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594342340
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594345434
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594346121
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594348902
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.cut",1419594350902
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594353840
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594354356
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594355981
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594356715
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594357887
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594358871
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594360746
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594361371
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594362090
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594362684
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594371621
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594373543
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594374918
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594381606
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594418152
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594435762
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594445356
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594459137
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594465637
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594467527
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419594467934
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594487293
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594490699
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594490699
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594513324
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594533809
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594542262
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594544199
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594560996
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594564277
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594573433
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594583792
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419594595167
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594606433
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594606433
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594608198
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1419594616464
+activated,view,org.python.pydev,2.8.1.2013072611,"org.python.pydev.navigator.view",1419594618839
+executed,command,,,"org.python.pydev.django.launching.DjangoLaunchShortcut.run",1419594621385
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594625417
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594625432
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594625542
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594633276
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594635260
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594635260
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594636541
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594646776
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1419594654963
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594656619
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594659025
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594676666
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594698446
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.cut",1419594709571
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594710352
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594715102
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594719399
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594741680
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1419594743133
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594744086
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594757664
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594760008
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594760398
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594761351
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594771023
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594791132
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594816444
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594832428
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594836491
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594838084
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594840881
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594850975
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1419594851006
+activated,view,org.python.pydev,2.8.1.2013072611,"org.python.pydev.navigator.view",1419594853209
+executed,command,,,"org.python.pydev.django.launching.DjangoLaunchShortcut.run",1419594855568
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594861943
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594867599
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594867662
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594867662
+activated,editor,org.eclipse.wst.html.ui,1.0.504.v201101122108,"org.eclipse.wst.html.core.htmlsource.source",1419594868896
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594873787
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594874505
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594876974
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1419594878880
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594880912
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594882427
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594883677
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594891927
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594893177
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594896349
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.1.r361_v20100714-0800,"org.eclipse.ui.edit.text.delete.line",1419594922645
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.undo",1419594924004
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419594925582
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594926285
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594930348
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594930785
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594932207
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594932582
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594932926
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594935957
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594935957
+activated,editor,org.python.pydev,2.8.1.2013072611,"org.python.pydev.editor.PythonEditor",1419594936379
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.cut",1419594948566
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594950050
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1419594955206
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1419594956831
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419594957394
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594966987
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594966987
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419594967081
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419595024736
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419595031423
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419595053126
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419595073750
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419595098547
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419595120171
+error,log,,,"Plug-in ""org.python.pydev.red_core"" was unable to instantiate class ""org.python.pydev.red_core.AddRedCoreThemeToView"".",1419595140717
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1419595153264
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419595163311
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419595163311
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1419595163357

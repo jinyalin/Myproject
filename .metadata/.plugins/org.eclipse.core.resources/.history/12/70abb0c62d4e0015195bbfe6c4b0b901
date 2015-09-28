@@ -1,0 +1,46 @@
+from django import forms
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.http.response import HttpResponseRedirect
+import ShareMethod.views
+import time
+import os,sys
+import paramiko
+import threading
+
+def worker(server,port,username,pkey_file,command):
+    try:
+        s = paramiko.SSHClient()
+        s.load_system_host_keys()
+        s.set_missing_host_key_policy(paramiko.AutoAddPolicy()) 
+        key = paramiko.RSAKey.from_private_key_file(pkey_file)
+        s.connect(server,port,username,pkey=key,timeout=10)
+        stdin,stdout,stderr = s.exec_command(command)
+        table_list = []
+        for result in stdout.readlines():
+            table_list.append({'server':server,'content':result})
+        s.close()
+    except Exception as e:
+        print(e)
+    return
+                
+def CommandQuery(req):
+    if req.method == 'POST':
+        command = req.REQUEST.get('command','0')
+        print("---command=-------"+command+"----------")
+        username = 'bjxtb'
+        pkey_file='/home/bjxtb/.ssh/id_rsa'
+        conn,cur=ShareMethod.views.connDB_ssh()
+        sql = "select server_ip,port from kvm_server_info where is_yw_ip = 1 and (server_id like 'cmpp%' or server_id like 'sgip%' or server_id like 'smgp%')"
+        ShareMethod.views.exeQuery(cur,sql)
+        ShareMethod.views.connClose(conn,cur)
+        for row in cur:
+            server = row[0]
+            port = row[1]
+            t = threading.Thread(target=worker)
+            t.start
+        return render_to_response("CmdResult.html",locals())
+    else:
+        return render_to_response("CmdResult.html",locals())
+        
+        

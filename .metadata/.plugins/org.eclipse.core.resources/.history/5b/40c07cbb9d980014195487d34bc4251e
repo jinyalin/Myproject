@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>select data</title>
+</head>
+<body>
+ <div><span>类型</span><span>描述</span><span>号码</span><span>时间</span></div>
+ {% for mobile in mobiles_list.object_list %}
+ <div>
+ 	<span>{{mobile.type}}</span>
+ 	<span>{{mobile.type_desc}}</span>
+ 	<span>{{mobile.mobiles}}</span>
+    <span>{{mobile.insert_time}}</span>
+ </div> 
+{% endfor %}
+
+<div>
+ 
+{% if mobiles_list.has_previous %}
+ 
+<a href="?page={{ mobiles_list.previous_page_number }}">&lt; 上一页</a>
+ 
+{% endif %}
+ 
+<span>
+ 
+{% for p in page_range %}
+ 
+{% ifequal p mobiles_list.number %}
+ 
+<span class="current">{{p}}</span>
+ 
+{% else %}
+ 
+<a href="?page={{p}}" title="第{{p}}页">{{p}}</a>
+ 
+{% endifequal %}
+ 
+{% endfor %}
+ 
+</span>
+ 
+{% if mobiles_list.has_next %}
+ 
+<a href="?page={{ mobiles_list.next_page_number }}">下一页 &gt; </a>
+ 
+{% endif %}
+ 
+<a >[第{{ mobiles_list.number }}/{{ mobiles_list.paginator.num_pages }}页]</a>
+ 
+</div>
+</body>
+</html>

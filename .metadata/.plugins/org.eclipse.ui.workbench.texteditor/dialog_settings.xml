@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="275" key="DIALOG_WIDTH"/>
+		<item value="85" key="DIALOG_Y_ORIGIN"/>
+		<item value="355" key="DIALOG_HEIGHT"/>
+		<item value="1051" key="DIALOG_X_ORIGIN"/>
+		<item value="1|宋体|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|宋体" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="10065" key="selection"/>
+		<list key="findhistory">
+			<item value="10065"/>
+			<item value="10064"/>
+			<item value="print"/>
+			<item value="yw"/>
+			<item value="port"/>
+			<item value="uw"/>
+			<item value="and msg_receive_time"/>
+			<item value="msg_receive_time"/>
+		</list>
+		<list key="replacehistory">
+			<item value="and insert_time"/>
+			<item value="insert_time"/>
+			<item value="YysBill"/>
+			<item value="connDB2()"/>
+			<item value="msg_receive_time"/>
+			<item value="td"/>
+			<item value="connDB_auto"/>
+			<item value="connDB_Auto"/>
+		</list>
+	</section>
+</section>

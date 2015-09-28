@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{{title}}</title>
+</head>
+<body>
+<!-- 
+<h1>name: {{user.name}}</h1>
+<h1>age: {{user.age}}</h1>
+<h1>sex: {{user.sex}}</h1>
+<h1>name~~~: {{user.say}}</h1>
+<h1>{{book_list.0}}</h1>
+<h1>{{book_list.1}}</h1>
+<h1>{{book_list.2}}</h1>
+<h1>{{book_list.3}}</h1>
+  -->
+ <!-- 调用类的对象 （if的使用）-->
+  <!-- 
+ {% if user %}
+    <li>name : {{user.name}}</li>
+ {% else %}
+用户不存在
+ {% endif %}
+ -->
+ <!-- 遍历列表 （for的使用）-->
+ <!-- 
+ {% for book in book_list %}
+ <li>{{book}}</li>
+ {% endfor %}
+ -->
+  <!-- 遍历字典 （for的使用，取键和值）-->
+   <!--
+ {% for k,v in usr.items %}
+ <li>{{k}}:{{v}}</li>
+ {% endfor %} 
+ -->
+  <!-- 遍历字典 （for的使用，每列前面加序号）-->
+   <!--
+  {% for k,v in usr.items %}
+ <li>{{forloop.counter}}.{{k}}:{{v}}</li>
+ {% endfor %} 
+ -->
+ {% for emp in emps %}
+ <div>{{forloop.counter}} {{emp}}</div> 
+ {% endfor %}
+</body>
+</html>

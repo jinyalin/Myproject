@@ -1,0 +1,34 @@
+#!/usr/bin/python
+#coding=UTF-8
+import os,sys
+import pexpect
+if __name__=="__main__":
+    ip_file = 'ip1.txt'
+    ip_dic = {}
+    num = 0
+    f = file(ip_file)
+    excution_list = []
+    for line in f.readlines():
+        print line,
+        if '------' in line:continue
+        if line.count('\n')==len(line):continue
+        f_line = line.strip().split()
+        num = f_line[0]
+        host = f_line[2]
+        port = f_line[5]
+        if len(line) == 0:break
+        ip_dic[num] = 'ssh -o ServerAliveInterval=60 -i /home/yunwei/.ssh/hskj_20130606_bjxtb bjxtb@%s -p %s'  %(host,port)
+    
+    option = raw_input("\n请选择:\n")
+
+
+def (DUMP,FILENAME,EMAIL):
+    if option in ip_dic.keys():
+        print ip_dic[option]
+        ssh = pexpect.spawn(ip_dic[option],timeout=10)
+        ssh.expect("key")
+        ssh.sendline("&U*I(O1208")
+        ssh.expect("]$")
+        ssh.sendline("cd /hskj/tmp/bjywb/getdate && ${DUMP} -c 260000 -w $FILENAME && tar -Pzcvf  $FILENAME.tar.gz $FILENAME  && /usr/local/bin/sendEmail -f nagios@baiwutong.com -t ${EMAIL}  -s mail.baiwutong.com -u "数据包" -m "附件为您抓
+    取的数据包，请查收~"  -a $FILENAME.tar.gz  -xu nagios@baiwutong.com  -xp hskj707   && rm -rf /hskj/tmp/bjywb/getdate/$FILENAME /hskj/tmp/bjywb/getdate/$FILENAME.tar.gz  && echo ${name}--${time}--Email  is  OK. | tee -a /hskj/tmp/bjywb/tcpdump.log")
+        ssh.interact()

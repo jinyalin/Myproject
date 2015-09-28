@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MonitorSystem/ShareMethod/templates/tag.html&apos; to &apos;page.html&apos;" description="Rename resource &apos;tag.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ShareMethod/templates/tag.html" name="page.html" stamp="1422000216438" updateReferences="true"/>
+</session>

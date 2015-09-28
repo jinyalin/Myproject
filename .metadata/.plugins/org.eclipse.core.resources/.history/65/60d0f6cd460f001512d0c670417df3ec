@@ -1,0 +1,30 @@
+# coding=UTF-8
+import os,sys
+num = 0
+DBname = 'cmpp_server'
+while True:
+    Sn = os.system("mysql -uyunwei -pmobile707 -e \"use cmpp_server;show table status like 'td_info';\"  | grep -v \"Name\" | awk '{print $11}'")
+    MaxSn = int(Sn)-1
+    if MaxSn > num and num == 0:
+        num = MaxSn
+    else:
+        if MaxSn > num:
+            td_code = os.system("mysql -uyunwei -pmobile707 -e \"use "+DBname+";select td_code,td_name,ext from td_info where sn="+MaxSn+";\" | grep -v \"td_code\" | awk  '{print $1}'")
+            td_name = os.system("mysql -uyunwei -pmobile707 -e \"use cmpp_server;select td_code,td_name,ext from td_info where sn="+MaxSn+";\" | grep -v \"td_code\" | awk  '{print $2}'")
+            ext = os.system("mysql -uyunwei -pmobile707 -e \"use cmpp_server;select td_code,td_name,ext from td_info where sn="+MaxSn+";\" | grep -v \"td_code\" | awk  '{print $3}'")
+            if "发联通" in td_name:
+                sql = "insert into submit_message_test(user_sn ,user_id ,sp_number ,mobile,msg_content,msg_id,yw_code ,status,response,insert_time,update_time,pknumber,pktotal ,sub_msg_id,charge_count ,msg_format,check_user,filter_flag,receive_time ,scan_time ,check_time,cache_sn,content ,md5_index ,fail_desc ,src_number,src_yw_code,ori_mobile) values (123,'','"+ext+"444','13261289750','"+td_name+"---通道测试','0203121525_16361_39670',"+td_code+",1,0,now(),now(),0,0,0,1,8 ,'autotest' ,3,now(),now(),now(),0,'','','','"+ext+"444',"+td_code+",'13261289750');"
+                print(sql)
+                os.system("mysql -udba -psmshskj1207 -e use cmpp_server;"+sql)
+                num = MaxSn
+            if "发联通" in td_name:
+                sql = "insert into submit_message_test(user_sn ,user_id ,sp_number ,mobile,msg_content,msg_id,yw_code ,status,response,insert_time,update_time,pknumber,pktotal ,sub_msg_id,charge_count ,msg_format,check_user,filter_flag,receive_time ,scan_time ,check_time,cache_sn,content ,md5_index ,fail_desc ,src_number,src_yw_code,ori_mobile) values (123,'','"+ext+"444','13261289750','"+td_name+"---通道测试','0203121525_16361_39670',"+td_code+",1,0,now(),now(),0,0,0,1,8 ,'autotest' ,3,now(),now(),now(),0,'','','','"+ext+"444',"+td_code+",'13261289750');"
+                print(sql)
+                os.system("mysql -udba -psmshskj1207 -e use cmpp_server;"+sql)
+                num = MaxSn
+            if "发联通" in td_name:
+                sql = "insert into submit_message_test(user_sn ,user_id ,sp_number ,mobile,msg_content,msg_id,yw_code ,status,response,insert_time,update_time,pknumber,pktotal ,sub_msg_id,charge_count ,msg_format,check_user,filter_flag,receive_time ,scan_time ,check_time,cache_sn,content ,md5_index ,fail_desc ,src_number,src_yw_code,ori_mobile) values (123,'','"+ext+"444','13261289750','"+td_name+"---通道测试','0203121525_16361_39670',"+td_code+",1,0,now(),now(),0,0,0,1,8 ,'autotest' ,3,now(),now(),now(),0,'','','','"+ext+"444',"+td_code+",'13261289750');"
+                print(sql)
+                os.system("mysql -udba -psmshskj1207 -e use cmpp_server;"+sql)
+                num = MaxSn
+            

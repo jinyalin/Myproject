@@ -1,0 +1,55 @@
+{% extends "table2.html" %}
+{% block title %}测试结果统计(receive_report_info){% endblock %}
+{% block href %}
+
+                            <li><a href="selectMo_cm.do">移动</a></li>
+                            <li><a href="selectMo_un.do">联通</a></li>
+                            <li class="active"><a href="selectMo_cdma.do">电信</a></li>
+{% endblock %}
+{% block form %}
+	<form action="selectMo_cdma.do" method="post" class="form-inline" />
+					<select name="search">
+										<option value="dest_mobile">接入号</option>
+					</select>
+					 起止时间：<input type="text" data-date-format="yyyy-mm-dd" value="" class="datepicker" name="startTime"/> - <input type="text" data-date-format="yyyy-mm-dd" value="" class="datepicker"  name ="endTime"/>
+					<input type="text" name="value" placeholder="查询关键词"/>
+					<input type="submit" class="btn"  value="查询" />
+ 	</form>	
+ 	</br>
+ 	{% if table_flist %}
+			以下省份未收到测试结果：</br>
+		{% for loss in table_flist %}
+			接入号：{{loss.dest_mobile}}  省份：{{loss.province}}  手机号码：{{loss.mobile}}</br>
+		{% endfor %}
+	{% else %}
+		{% ifequal flag '1' %}
+			<h5>统计结果：31个省份均收到测试结果，请查看以下明细：</h5>
+		{% endifequal %}
+	{% endif %}
+				
+{% endblock %}
+
+							
+{% block thread %}
+										<tr>
+											<th>序号</th>
+											<th>接入号</th>
+											<th>省份</th>
+											<th>手机号码</th>
+											<th>上行内容</th>
+											<th>数量</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for statistics in table_list %}
+										<tr>
+										<td>{{ forloop.counter }}</td>
+										<td>{{ statistics.dest_mobile }}</td>
+										<td>{{ statistics.province }}</td>
+										<td>{{ statistics.mobile }}</td>
+										<td>{{ statistics.msg_content }}</td>
+										<td>{{ statistics.amount }}</td>
+										</tr>
+										{% endfor %}
+{% endblock %}

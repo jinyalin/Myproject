@@ -1,0 +1,78 @@
+{% extends "table1.html" %}
+{% block title %}运维工作分配表{% endblock %}
+
+{% block title1 %}服务器分配表{% endblock %}
+							
+{% block thread %}
+										<tr>
+											<th nowrap="nowrap">业务负责组</th>
+											<th nowrap="nowrap">责任人</th>
+											<th>负责服务器</th>
+											<th>负责机房</th>
+											<th nowrap="nowrap">代理人</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for manager in table_list %}
+										<tr>
+											<td>{{manager.group_mark}}</td>
+											<td  nowrap="nowrap" ><B>{{manager.group_name}}</B></td>
+											<td>{{manager.server_name}}</td>
+											<td>{{manager.server_room}}</td>
+											<td>{{manager.agent_name}}</td>
+										</tr>
+										{% endfor %}
+										
+{% endblock %}
+{% block thread2 %}
+										<tr>
+											<th>业务负责组</th>
+											<th>责任人</th>
+											<th nowrap="nowrap">服务客服组</th>
+											<th nowrap="nowrap">服务客服</th>
+											<th nowrap="nowrap">服务销售部</th>
+											<th nowrap="nowrap">服务销售</th>
+											<th nowrap="nowrap">代理人</th>
+										</tr>
+{% endblock %}
+{% block title2 %}技术支持分配表 {% endblock %}
+{% block tbody2 %}
+										<tr>
+											<td>运维1组</td>
+											<td>仉晓甜</td>
+											<td nowrap="nowrap">客服3组</td>
+											<td nowrap="nowrap">姜云平、游志娜、陈慧玲、王彩霞、杨莹、杨双梅</td>
+											<td nowrap="nowrap">销售3部</td>
+											<td nowrap="nowrap">蓝立洪、王晓明、张建超、李廷艳、董振山、姜朝飞、程腾飞</td>
+											<td nowrap="nowrap">马利民</td>
+										</tr>
+										<tr>
+											<td>运维1组</td>
+											<td>郭小蕾</td>
+											<td nowrap="nowrap">客服1组</td>
+											<td nowrap="nowrap">申杨、李文莉、袁媛、郭阳</td>
+											<td nowrap="nowrap">销售1部</td>
+											<td nowrap="nowrap">李英超、黄浩、张伟、曹晓勇、王立飞、李雪梅、王玲燕、刘海明、杨晓东</td>
+											<td nowrap="nowrap">仉晓甜</td>
+										</tr>
+										<tr>
+											<td>运维2组</td>
+											<td>马利民</td>
+											<td nowrap="nowrap">客服2组</td>
+											<td nowrap="nowrap">高燕、胥海利、赵静、徐婷婷、王志芳、裴小超</td>
+											<td nowrap="nowrap">销售2部</td>
+											<td nowrap="nowrap">曾建伟、朱丽伟 、胡祖培、郭倩楠、熊俊高、姜云飞、付秉苏、袁丽、杨娇瑄、郑丽冰、李子龙</td>
+											<td nowrap="nowrap">仉晓甜</td>
+										</tr>
+										<tr>
+											<td>运维2组</td>
+											<td>吴云</td>
+											<td nowrap="nowrap">客服4组</td>
+											<td nowrap="nowrap">李阳、穆玉亭、曾朝露、张春妮、秦荣华</td>
+											<td nowrap="nowrap">销售4部</td>
+											<td nowrap="nowrap">蔡莹、张兰兰、董丽娜、熊乐、杨珍民、王瑞强</td>
+											<td nowrap="nowrap">马利民</td>
+										</tr>
+										
+{% endblock %}

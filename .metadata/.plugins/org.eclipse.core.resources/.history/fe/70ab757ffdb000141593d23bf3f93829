@@ -1,0 +1,39 @@
+﻿{% extends "table.html" %}
+{% block title %}SQL语句管理{% endblock %}
+
+{% block form %}
+	<form action="select.do" method="post" class="form-inline" />
+					<select name="search">
+						<option value="monitor_command">SQL语句</option>
+						<option value="warning_content">预警内容</option>
+						<option value="comment">描述</option>
+					</select>
+					<input type="text" name="value" placeholder="查询关键词"/>
+					<input type="submit" class="btn"  value="查询" />
+				</form>	
+{% endblock %}
+
+{% block thread %}
+										<tr>
+											<th>ID</th>
+											<th>SQL语句</th>
+											<th>预警内容</th>
+											<th>描述</th>
+											<th>预警方式</th>
+											<th>操作</th>
+										</tr>
+{% endblock %}
+
+{% block tbody %}
+										{% for message in MonitorInfo_list.object_list %}
+										<tr>
+											<td>{{message.id}}</td>
+											<td>{{message.monitor_command}}</td>
+											<td>{{message.warning_content}}</td>
+											<td>{{message.comment}}</td>
+											<td>{{message.alarm_type}}</td>
+											<td><a href="update?id={{message.id}}&monitor_type={{monitor_type}}">修改</a>&nbsp;&nbsp;<a href="delete?id={{message.id}}">删除</a></td>
+										</tr>
+										{% endfor %}
+
+{% endblock %}	 

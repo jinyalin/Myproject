@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DetailedList/CommandQuery/templates/login.html&apos; to &apos;CmdResult.html&apos;" description="Rename resource &apos;login.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CommandQuery/templates/login.html" name="CmdResult.html" stamp="1438332444027" updateReferences="true"/>
+</session>

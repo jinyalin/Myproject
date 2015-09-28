@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en">
+	<!-- container-fluid -->
+	<head>
+		<title>预警监控管理</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="static/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="static/css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="static/css/unicorn.main.css" />
+		<link rel="stylesheet" href="static/css/unicorn.grey.css" class="skin-color" />
+		<style type="text/css">
+			html,body{ height: 100%;}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h1><a href="index.html">预警监控管理</a></h1>		
+		</div>
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li><a title="" href="#"><i class="icon icon-user"></i> <span class="text">{{username}}</span></a></li>
+                <li><a title="" href="logout"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			<a href="#" class="visible-phone"><i class="icon icon-home"></i>预警菜单</a>
+			<ul>
+				<li class="active"><a href="NoticeInfo/select.do" target="mainframe"><i class="icon icon-exclamation-sign"></i> <span>预警信息展示</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-list-alt"></i> <span>监控命令管理</span> <span class="label">&gt;&gt;</span></a>
+					<ul>
+						<li><a href="MonitorInfo/select.do?monitor_type=0" target="mainframe">SQL语句</a></li>
+						<li><a href="MonitorInfo/select.do?monitor_type=1" target="mainframe">LINUX命令</a></li>
+					</ul>
+				</li>
+				<li><a href="ServerInfo/select.do" target="mainframe"><i class="icon icon-hdd"></i> <span>服务器管理</span></a></li>
+				<li class="submenu"><a href="#"><i class="icon icon-tasks"></i> <span>服务器监控管理</span> <span class="label">&gt;&gt;</span></a>
+					<ul>
+						<li><a href="ServerMonitorInfo/selectSql.do" target="mainframe">sql语句监控</a></li>
+						<li><a href="ServerMonitorInfo/selectLinux.do" target="mainframe">linux命令监控</a></li>
+						<li><a href="ServerMonitorInfo/statistic.do" target="mainframe">监控统计</a></li>
+					</ul>
+				</li>
+				<li class="submenu"><a href="#"><i class="icon icon-user"></i> <span>通知用户管理</span> <span class="label">&gt;&gt;</span></a>
+					<ul>
+						<li><a href="UserGroup/select.do" target="mainframe">用户组管理</a></li>
+						<li><a href="UserInfo/select.do" target="mainframe">用户管理</a></li>
+					</ul>
+				</li>
+				<li><a href="FailureNotification/select.do" target="mainframe"><i class="icon icon-warning-sign"></i> <span>故障通知</span></a></li>
+				<li><a href="MonitorPort/select.do" target="mainframe"><i class="icon icon-cog"></i> <span>端口监控管理</span> </a></li>
+				<li><a href="HttpMonitor/select.do" target="mainframe"><i class="icon icon-file"></i> <span>HTTP监控</span></a></li>
+				<li><a href="CheckTable/select.do" target="mainframe"><i class="icon icon-wrench"></i> <span>检查表管理</span></a></li>
+				<li><a href="BackupTable/select.do" target="mainframe"><i class="icon icon-file"></i> <span>表备份管理</span></a></li>
+				
+				<li class="submenu"><a href="#"><i class="icon icon-user"></i> <span>系统管理</span> <span class="label">&gt;&gt;</span></a>
+					<ul>
+						<li><a href="AdminUser/select.do" target="mainframe">人员管理</a></li>
+						<li><a href="CommentList/select.do" target="mainframe">监控分类管理</a></li>
+						<li><a href="ServerManager/select.do" target="mainframe">服务器负责人</a></li>
+					</ul>
+				</li>
+				<li><a class="sidebar-toggler tip-top" data-original-title="折叠" href="#"><i class="icon icon-step-backward"></i></a></li>
+			</ul>
+		</div>
+		
+		<div id="content">
+			<iframe src="NoticeInfo/select.do" width="100%" height="100%" frameborder="0" name="mainframe" id="mainframe">			
+			</iframe>
+		</div>
+
+            <script src="static/js/jquery.min.js"></script>
+            <script src="static/js/bootstrap.min.js"></script>
+            <script src="static/js/unicorn.js"></script>
+            <script type="text/javascript">	
+				
+			</script>
+	</body>
+</html>

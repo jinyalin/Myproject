@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;DetailedList/SmsSP&apos; to &apos;SmsSp&apos;" description="Rename resource &apos;SmsSP&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SmsSP" name="SmsSp" stamp="1432521342186" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;DetailedList/SmsSp/templates/CLselect.html&apos; to &apos;SmsSp.html&apos;" description="Rename resource &apos;CLselect.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SmsSp/templates/CLselect.html" name="SmsSp.html" stamp="1432521395334" updateReferences="true"/>
+</session>

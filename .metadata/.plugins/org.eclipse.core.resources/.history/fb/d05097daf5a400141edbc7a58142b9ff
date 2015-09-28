@@ -1,0 +1,52 @@
+{% extends "frame.html" %}
+{% block title %}服务器管理{% endblock %}
+{% block server %}<li class="active">{%endblock%}
+{% block content %}
+							<form method="post" action="select.do">
+								   <select name="search">
+										<option value="server_sn">服务器sn</option>
+										<option value="monitor_sn">sql语句sn</option>
+										<option value="mark">比较符号</option>
+										<option value="value">预警阀值</option>
+										<option value="frequency">监控频率</option>
+										<option value="last_time">更新时间</option>
+										<option value="status">监控状态</option>
+										<option value="type">预警号码类型</option>
+									</select>
+									<input type="text" name="value"/>
+									<input type="submit" value="查询"/>
+							</form>
+				<a href="insert.do">添加记录</a>
+					<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>服务器sn</th>
+											<th>sql语句sn</th>
+											<th>比较符号</th>
+											<th>预警阀值</th>
+											<th>监控频率</th>
+											<th>更新时间</th>
+											<th>监控状态</th>
+											<th>预警号码类型</th>
+											<th style="width:80px">操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										
+										{% for message in ServerMonitorInfo_list.object_list %}
+										<tr>
+											<td>{{message.server_sn}}</td>
+											<td>{{message.monitor_sn}}</td>
+											<td>{{message.mark}}</td>
+											<td>{{message.value}}</td>
+											<td>{{message.frequency}}</td>
+											<td>{{message.last_time}}</td>
+											<td>{{message.status}}</td>
+											<td>{{message.type}}</td>
+											<td><a href="update?id={{message.id}}">修改</a></td>
+										</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+{% endblock %}

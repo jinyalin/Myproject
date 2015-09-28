@@ -1,0 +1,16 @@
+MODULES_MANAGER_V2
+ActiveGet|E:\workspace\sms-demo\src\ActiveGet.py
+AntoSmsTest|E:\workspace\sms-demo\src\AntoSmsTest.py
+GetMsg|E:\workspace\sms-demo\src\GetMsg.py
+OpExcel|E:\workspace\sms-demo\src\OpExcel.py
+QueryBalance|E:\workspace\sms-demo\src\QueryBalance.py
+SendSms|E:\workspace\sms-demo\src\SendSms.py
+SmsTest|E:\workspace\sms-demo\src\SmsTest.py
+httpMonitor|E:\workspace\sms-demo\src\httpMonitor.py
+kvm|E:\workspace\sms-demo\src\kvm.py
+sftp|E:\workspace\sms-demo\src\sftp.py
+sftp_bak1|E:\workspace\sms-demo\src\sftp_bak1.py
+ssh_test|E:\workspace\sms-demo\src\ssh_test.py
+tcpMonitor|E:\workspace\sms-demo\src\tcpMonitor.py
+tcpdump|E:\workspace\sms-demo\src\tcpdump.py
+test1|E:\workspace\sms-demo\src\test1.py

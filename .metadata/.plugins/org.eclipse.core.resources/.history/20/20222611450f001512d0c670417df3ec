@@ -1,0 +1,7 @@
+# coding=UTF-8
+import os,sys
+num = 0
+while True:
+    td_sn = os.system("mysql -uyunwei -pmobile707 -e \"use cmpp_server;show table status like 'td_info';\"  | grep -v \"Name\" | awk '{print $11}'")
+    if td_sn > num and num == 0:
+        

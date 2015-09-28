@@ -1,0 +1,57 @@
+from django import forms
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.http.response import HttpResponseRedirect
+import ShareMethod.views
+import time
+
+def insert(req,conn,cur,conn2,cur2,html):
+        operatorName=req.session.get('username')
+        NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
+        if req.method == 'POST':
+            sp_number=req.REQUEST.get('ReceiverMobileNo','0')
+            msg_content=req.REQUEST.get('Msg','0')
+            commport = req.POST.getlist('CommPort','0')
+            try:
+
+                for cport in commport:
+                    sql2="select mobile,province from phone_card where commport="+str(cport)
+                    print(sql2)
+                    ShareMethod.views.exeQuery(cur2,sql2)
+                    for mobile in cur2:
+                        phone=mobile[0]
+                        province=mobile[1]
+                    sender=phone+"("+province+") com"+cport
+                    print(sender)
+                    sql="insert into outbox(Sender,ReceiverMobileNo,Msg,SendTime,CommPort) values ('"+sender+"','" + sp_number +"','"+msg_content+"','"+NowTime+"',"+str(cport)+")"
+                    print(sql)
+                    SqlResult=ShareMethod.views.exeInsert(cur,sql)
+                ShareMethod.views.connClose(conn,cur)
+                ShareMethod.views.connClose(conn2,cur2)
+            except Exception as e:
+                ShareMethod.views.ErrorLog(str(e)+"操作人："+operatorName)
+                return HttpResponseRedirect('../FailureMessage.do?message=OutBox/insert_un.do')
+            ShareMethod.views.InfoLog(sql+"操作人："+operatorName)
+            return HttpResponseRedirect('../SuccessMessage.do?message=OutBox/insert_un.do')
+        else:
+                        
+            sql="select province,mobile,commport from phone_card"  
+            ShareMethod.views.exeQuery(cur,sql)
+            ShareMethod.views.connClose(conn,cur)
+            provinceNames=[]
+            for row in cur:
+                provinceNames.append({'province':row[0],'mobile':row[1],'commport':row[2]})
+            print(provinceNames)
+            return render_to_response(html,{'provinceNames':provinceNames})
+        
+def insert_un(req):
+    html='OBinsert_un.html'
+    conn,cur=ShareMethod.views.connDB_un()
+    conn2,cur2=ShareMethod.views.connDB_un()
+    return insert(req,conn,cur,conn2,cur2,html)
+
+def insert_cm(req):
+    html='OBinsert_cm.html'
+    conn,cur=ShareMethod.views.connDB_cm()
+    conn2,cur2=ShareMethod.views.connDB_cm()
+    return insert(req,conn,cur,conn2,cur2,html)

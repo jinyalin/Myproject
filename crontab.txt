@@ -1,0 +1,16 @@
+[root@CHECK-M-10-74 logs]# crontab -e
+
+20 1 * * * /usr/sbin/ntpdate ntp.api.bz;/sbin/hwclock -w > /dev/null 2>&1
+
+10 8 * * * /hskj/script/mysqlbackup.sh
+10 8 * * * /hskj/script/check_disk.sh
+0 1 * * * /hskj/script/nohupbackup.sh
+
+*/1 * * * * /hskj/script/chattr.sh
+10 9 * * * /hskj/script/check_hacker.sh
+
+#自动备份脚本
+30 0 5 * * /hskj/script/month_crontab.sh
+
+10 0 * * * /hskj/script/super_plate_backup_tables.sh
+*/5 * * * * /hskj/script/kfb_userid_monitor.sh

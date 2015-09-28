@@ -1,0 +1,57 @@
+from django import forms
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.http.response import HttpResponseRedirect
+import ShareMethod.views
+import time
+import os,sys
+import paramiko
+import threading
+
+class worker(threading.Thread):
+    def __init__(self,server=None,key=None,username=None,port=None,command=None,pkey_file=None):
+        threading.Thread.__init__(self)
+        self.server=server
+        self.key=key
+        self.username=username
+        self.port=port
+        self.command=command
+        self.pkey_file=pkey_file
+        self.thread_stop=False
+    def run(self):
+        s = paramiko.SSHClient()
+        s.load_system_host_keys()
+        s.set_missing_host_key_policy(paramiko.AutoAddPolicy()) 
+        key = paramiko.RSAKey.from_private_key_file(self.pkey_file)
+        s.connect(self.server,self.port,self.username,pkey=self.key,timeout=10)
+        stdin,stdout,stderr = s.exec_command(self.command)
+        table_list = []
+        for result in stdout.readlines():
+            table_list.append({'server':self.server,'content':result})
+        s.close()
+    def stop(self):
+        self.thread_stop=True
+
+                
+def CommandQuery(req):
+    if req.method == 'POST':
+        command = req.REQUEST.get('command','0')
+        print("---command=-------"+command+"----------")
+        username = 'bjxtb'
+        pkey_file='/home/bjxtb/.ssh/id_rsa'
+        conn,cur=ShareMethod.views.connDB_ssh()
+        #sql = "select server_ip,port from kvm_server_info where is_yw_ip = 1 and (server_id like 'cmpp%' or server_id like 'sgip%' or server_id like 'smgp%')"
+        sql = "select server_ip,port from kvm_server_info where is_yw_ip = 1 and (server_id like '%211.103.155.220%')"
+        ShareMethod.views.exeQuery(cur,sql)
+        ShareMethod.views.connClose(conn,cur)
+        table_list = []
+        for row in cur:
+            server = row[0]
+            port = row[1]
+            t = threading.Thread(target=worker(server,port,username,pkey_file,command,table_list))
+            t.start()
+        return render_to_response("CmdResult.html",locals())
+    else:
+        return render_to_response("CmdResult.html",locals())
+        
+        

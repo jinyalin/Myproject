@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MonitorSystem/NetMonitor/templates/SmsGate_cmpp.html&apos; to &apos;network_monitor.html&apos;" description="Rename resource &apos;SmsGate_cmpp.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="NetMonitor/templates/SmsGate_cmpp.html" name="network_monitor.html" stamp="1440834637230" updateReferences="true"/>
+</session>

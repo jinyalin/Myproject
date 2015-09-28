@@ -1,0 +1,61 @@
+{% extends "form.html" %}
+{% block title %}添加{% endblock %}
+{% block title1 %}服务器信息{% endblock %}
+{% block form %}
+					<form  action="insert.do" method="post" class="form-horizontal" name="dealform">
+					
+					<div class="control-group">
+								<label class="control-label">服务器IP</label>
+								{{ form.ip.errors }}
+								<div class="controls">
+									{{form.ip}}
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">端口</label>
+								{{ form.port.errors }}
+								<div class="controls">
+									{{form.port}}
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">数据库用户名</label>
+								{{ form.username.errors }}
+								<div class="controls">
+									{{form.username}}
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">数据库密码</label>
+								{{ form.password.errors }}
+								<div class="controls">
+									{{form.password}}
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">数据库名称</label>
+								{{ form.db_name.errors }}
+								<div class="controls">
+									{{form.db_name}}
+								</div>
+					</div>
+					<div class="control-group">
+								<label class="control-label">服务器名称</label>
+								{{ form.server_name.errors }}
+								<div class="controls">
+									{{form.server_name}}
+								</div>
+					</div>
+					<div class="control-group">
+							<label class="control-label">状态</label>
+								<div class="controls radio-group">
+									<label>{{form.status}}</label>
+								</div>
+					</div>
+    				<div class="form-actions">
+								<button type="submit" class="btn btn-primary"  onclick="actionInfo('add');return false;">保存</button>
+					</div>
+    							
+					</form>	
+				  	
+{% endblock %}

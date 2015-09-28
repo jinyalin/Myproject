@@ -1,0 +1,16 @@
+MODULES_MANAGER_V2
+ShareMethod.__init__|E:\workspace\TdManage\ShareMethod\__init__.py
+ShareMethod.admin|E:\workspace\TdManage\ShareMethod\admin.py
+ShareMethod.models|E:\workspace\TdManage\ShareMethod\models.py
+ShareMethod.tests|E:\workspace\TdManage\ShareMethod\tests.py
+ShareMethod.views|E:\workspace\TdManage\ShareMethod\views.py
+TdAccess.__init__|E:\workspace\TdManage\TdAccess\__init__.py
+TdAccess.admin|E:\workspace\TdManage\TdAccess\admin.py
+TdAccess.models|E:\workspace\TdManage\TdAccess\models.py
+TdAccess.tests|E:\workspace\TdManage\TdAccess\tests.py
+TdAccess.views|E:\workspace\TdManage\TdAccess\views.py
+TdManage.__init__|E:\workspace\TdManage\TdManage\__init__.py
+TdManage.settings|E:\workspace\TdManage\TdManage\settings.py
+TdManage.urls|E:\workspace\TdManage\TdManage\urls.py
+TdManage.wsgi|E:\workspace\TdManage\TdManage\wsgi.py
+manage|E:\workspace\TdManage\manage.py

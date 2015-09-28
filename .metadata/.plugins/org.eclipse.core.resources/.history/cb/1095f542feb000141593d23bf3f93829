@@ -1,0 +1,22 @@
+{% extends "table.html" %}
+{% block title %}添加SQL语句{% endblock %}
+{% block thread %}
+					<form method="post" action="insert">
+
+											<th>SQL语句</th>
+											<th>预警内容</th>
+											<th>描述</th>
+											<th>预警方式</th>
+{% endblock %}
+
+{% block tbody %}
+											<tr>
+											<td><textarea name="monitor_command"></textarea></td>
+											<td><textarea name="warning_content"></textarea></td>
+											<td><input type="text"  name="comment"/></td>
+											<td><input type="text"  name="alarm_type"/></td>
+											</tr>
+											<tr> <input type="submit" value="提交" /></tr>
+	
+				  </form>		
+{% endblock %}

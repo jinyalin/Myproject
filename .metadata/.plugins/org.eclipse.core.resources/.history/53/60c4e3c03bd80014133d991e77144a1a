@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>运维负责服务器</title>
+    <style type="text/css">
+        .list { width: 60%; margin: 20px auto 0; padding: 0; font-size: 14px; font-family: Arial; border: 1px solid #ddd;}
+        .list:before, .list:after { display: table; line-height: 0; content: "";}
+        .list:after { clear: both;}
+        .list dt, .list dd { line-height: 30px; color: #444; padding: 10px 0;}
+        .list dt { float: left; width: 120px; text-align: center; text-overflow: ellipsis; white-space: nowrap; clear: left; color: #12619f;}
+        .list dd { margin-left: 120px; width: auto; height: auto; position: relative;}
+        .list dd:after { content: ''; display: block; border-bottom: 1px solid #ddd; position: absolute; right: 0; bottom: 0; left: -120px;}
+        .list dd span { display: inline-block; padding: 0 2px; margin-right: 8px; white-space: nowrap;}
+        .list dd span:after { content: '     ';}
+        .list dd span:last-child:after { content: '';}
+        .list .list-title { height: 50px; line-height: 50px; background-color: #12619f; color: #fff; padding: 0;}
+    </style>
+</head>
+<body>
+    <dl class="list">
+        <dt class="list-title">运维负责人</dt><dd class="list-title">负责服务器</dd><dd class="list-title">代理人</dd>
+        {% for manager in table_list %}
+        <dt>{{manager.group_name}}</dt>
+		<dd>{{manager.server_name}}</dd>
+		<dd>{{manager.agent_name}}</dd>
+		{% endfor %}
+    </dl>
+</body>
+</html>

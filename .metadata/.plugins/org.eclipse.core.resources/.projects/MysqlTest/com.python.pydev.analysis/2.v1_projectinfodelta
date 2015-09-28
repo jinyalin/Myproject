@@ -1,0 +1,11 @@
+INSTUPShareMethod.views
+E:\workspace\MysqlTest\ShareMethod\views.py
+INFOS:&&2|1|2|0&&2|3|2|0&&2|4|2|0&&2|5|2|0&&2|6|2|0&&2|7|2|0&&2|8|2|0
+connDB=1
+connClose=7
+exeQuery=3
+exeInsert=6
+exeUpdate=4
+pagination=8
+exeDelete=5
+ShareMethod.views=2
