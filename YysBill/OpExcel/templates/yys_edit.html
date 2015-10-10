@@ -51,21 +51,27 @@
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label">成功数：</label>
-								<div class="controls">
-									<input id="success_count" name="success_count" class="validate[required]" value="{{message.success_count}}"/><code>*必填</code>
-								</div>
-							</div>
-							<div class="control-group">
 								<label class="control-label">提交数：</label>
 								<div class="controls">
 									<input id="total" name="total" value="{{message.total}}"/>
 								</div>
 							</div>
 							<div class="control-group">
+								<label class="control-label">成功数：</label>
+								<div class="controls">
+									<input id="success_count" name="success_count" class="validate[required]" value="{{message.success_count}}"/><code>*必填</code>
+								</div>
+							</div>
+							<div class="control-group">
 								<label class="control-label">账户名称：</label>
 								<div class="controls">
 									<input id="user_name" name="user_name" value="{{message.user_name}}"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">备注：</label>
+								<div class="controls">
+									<input id="comment" name="comment" value="{{message.comment}}"/>
 								</div>
 							</div>
 							<input type="hidden" name="id" value="{{message.id}}" />

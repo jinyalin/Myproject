@@ -53,7 +53,7 @@ def connClose(conn,cur):
       
 def pagination(sql,pageType,curPage,allPostCounts):  
     
-    ONE_PAGE_OF_DATA = 10
+    ONE_PAGE_OF_DATA = 20
     after_range_num = 5   
     befor_range_num = 4
     allPage = int(allPostCounts / ONE_PAGE_OF_DATA)

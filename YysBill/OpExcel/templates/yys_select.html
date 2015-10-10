@@ -21,7 +21,10 @@
 											<th>运营商</th>
 											<th  nowrap="nowrap">接入号</th>
 											<th  nowrap="nowrap">短/彩信</th>
+											<th nowrap="nowrap">提交数</th>
 											<th nowrap="nowrap">成功数</th>
+											<th nowrap="nowrap">账户名称</th>
+											<th nowrap="nowrap">备注</th>
 											<th nowrap="nowrap">操作</th>
 										</tr>
 {% endblock %}
@@ -39,7 +42,10 @@
 											{% else %}
 											<td>彩信</td>
 											{% endif %}
+											<td nowrap="nowrap">{{data.total}}</td>
 											<td nowrap="nowrap">{{data.success_count}}</td>
+											<td nowrap="nowrap">{{data.user_name}}</td>
+											<td nowrap="nowrap">{{data.comment}}</td>
 											<td><a href="update.do?id={{data.id}}">修改</a></td>
 										</tr>
 										{% endfor %}

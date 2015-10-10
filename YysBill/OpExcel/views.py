@@ -61,19 +61,19 @@ def upload(req):
         for i in range(1,nrows):
             if ncols >= 4:
                 sp_number1 = str(table.cell(i,0).value)
-                sp_number = sp_number1.split('.')[0]
-                success_count = str(table.cell(i,1).value)
+                sp_number = sp_number1.strip().split('.')[0]
+                total = str(table.cell(i,1).value)
+                success_count = str(table.cell(i,2).value)
                 print("success_count:"+str(success_count))
-                total = str(table.cell(i,2).value)
                 user_name = str(table.cell(i,3).value)
             if ncols == 3:
                 sp_number1 = str(table.cell(i,0).value)
-                sp_number = sp_number1.split('.')[0]
-                success_count = str(table.cell(i,1).value)
-                total = str(table.cell(i,2).value)
+                sp_number = sp_number1.strip().split('.')[0]
+                total = str(table.cell(i,1).value)
+                success_count = str(table.cell(i,2).value)  
             if ncols == 2:
                 sp_number1 = str(table.cell(i,0).value)
-                sp_number = sp_number1.split('.')[0]
+                sp_number = sp_number1.strip().split('.')[0]
                 success_count = str(table.cell(i,1).value) 
             sql = "insert into yys_data_handle(sp_number,start_time,end_time,total,success_count,user_name,gate_name,every_month,mode,be_area,be_type) values ('"+sp_number+"','" + str(start_time) +"','"+str(end_time)+"','"+str(total)+"',"+str(success_count)+",'"+user_name+"','"+gate_name+"','"+str(every_month)+"',"+str(mode)+","+str(be_area)+","+str(be_type)+")"
             print(sql)
@@ -119,6 +119,7 @@ def insert(req):
     success_count=req.REQUEST.get('success_count','0')
     total=req.REQUEST.get('total','0')
     user_name=req.REQUEST.get('user_name','0')
+    comment=req.REQUEST.get('comment','0')
     conn1,cur1=ShareMethod.views.connDB1()
     conn2,cur2=ShareMethod.views.connDB1()
     sql_area = "select tag from tag_info where sn="+be_area
@@ -135,7 +136,7 @@ def insert(req):
         type_name = row2[0]
     gate_name = area_name + type_name
     if req.method == 'POST':
-        sql="insert into yys_data_handle(sp_number,start_time,end_time,total,success_count,user_name,gate_name,every_month,mode,be_area,be_type) values ('"+sp_number+"','" + str(start_time) +"','"+str(end_time)+"','"+str(total)+"',"+str(success_count)+",'"+user_name+"','"+gate_name+"','"+str(every_month)+"',"+str(mode)+","+str(be_area)+","+str(be_type)+")"
+        sql="insert into yys_data_handle(sp_number,start_time,end_time,total,success_count,user_name,gate_name,every_month,mode,be_area,be_type,comment) values ('"+sp_number+"','" + str(start_time) +"','"+str(end_time)+"','"+str(total)+"',"+str(success_count)+",'"+user_name+"','"+gate_name+"','"+str(every_month)+"',"+str(mode)+","+str(be_area)+","+str(be_type)+",'"+comment+"')"
         print(sql)
         try:
             conn,cur=ShareMethod.views.connDB()
@@ -175,7 +176,7 @@ def select(req):
     startTime=req.REQUEST.get('startTime','')
     endTime=req.REQUEST.get('endTime','')
     
-    sql= "select sn,every_month,gate_name,sp_number,mode,success_count from yys_data_handle where 1 =1 "
+    sql= "select sn,every_month,gate_name,sp_number,mode,success_count,user_name,comment,total from yys_data_handle where 1 =1 "
     sql2 = "select count(*) as count from yys_data_handle where 1=1 "
     
     sql += " and every_month='"+str(every_month)+"' "
@@ -202,7 +203,11 @@ def select(req):
     conn,cur=ShareMethod.views.connDB()
     ShareMethod.views.exeQuery(cur,sql) 
     for row in cur:
-        table_list.append({'id':row[0],'every_month':row[1],'gate_name':row[2],'sp_number':row[3],'mode':row[4],'success_count':row[5]})
+        if row[7]:
+            comment=row[7]
+        else:
+            comment=''
+        table_list.append({'id':row[0],'every_month':row[1],'gate_name':row[2],'sp_number':row[3],'mode':row[4],'success_count':row[5],'user_name':row[6],'comment':comment,'total':row[8]})
     ShareMethod.views.connClose(conn,cur)
     return render_to_response('yys_select.html',locals())
 
@@ -210,7 +215,7 @@ def update(req):
     id=req.REQUEST.get('id',0)
     print(id)
     conn,cur=ShareMethod.views.connDB()
-    ShareMethod.views.exeQuery(cur,"select sn,every_month,be_area,be_type,sp_number,mode,success_count,total,user_name from yys_data_handle where sn="+id)
+    ShareMethod.views.exeQuery(cur,"select sn,every_month,be_area,be_type,sp_number,mode,success_count,total,user_name,comment from yys_data_handle where sn="+id)
     ShareMethod.views.connClose(conn,cur) 
     conn1,cur1=ShareMethod.views.connDB1()
     conn2,cur2=ShareMethod.views.connDB1()
@@ -232,7 +237,11 @@ def update(req):
             user_name=row[8]
         else:
             user_name=''
-        table_list.append({'id':row[0],'every_month':row[1],'be_area':row[2],'be_type':row[3],'sp_number':row[4],'mode':row[5],'success_count':row[6],'total':row[7],'user_name':user_name})
+        if row[9]:
+            comment=row[9]
+        else:
+            comment=''
+        table_list.append({'id':row[0],'every_month':row[1],'be_area':row[2],'be_type':row[3],'sp_number':row[4],'mode':row[5],'success_count':row[6],'total':row[7],'user_name':user_name,'comment':comment})
     return render_to_response('yys_edit.html',locals())
         
     
@@ -245,9 +254,10 @@ def modify(req):
     be_type=req.REQUEST.get('be_type','0')
     success_count=req.REQUEST.get('success_count',0)
     total=req.REQUEST.get('total',0)
+    comment=req.REQUEST.get('comment','')
     if total == '':
         total = 0
-    user_name=req.REQUEST.get('user_name',0)
+    user_name=req.REQUEST.get('user_name','')
     conn1,cur1=ShareMethod.views.connDB1()
     conn2,cur2=ShareMethod.views.connDB1()
     sql_area = "select tag from tag_info where sn="+be_area
@@ -263,7 +273,7 @@ def modify(req):
     for row2 in cur2:
         type_name = row2[0]
     gate_name = area_name + type_name
-    sql="update yys_data_handle set gate_name='"+gate_name+"',sp_number='"+sp_number+"',mode="+str(mode)+",be_area="+str(be_area)+",be_type="+str(be_type)+",success_count="+str(success_count)+",total="+str(total)+",user_name='"+user_name+"' where sn="+str(id)
+    sql="update yys_data_handle set gate_name='"+gate_name+"',sp_number='"+sp_number+"',mode="+str(mode)+",be_area="+str(be_area)+",be_type="+str(be_type)+",success_count="+str(success_count)+",total="+str(total)+",user_name='"+user_name+"',comment='"+comment+"' where sn="+str(id)
     print(sql)
     try:
         conn,cur=ShareMethod.views.connDB()
