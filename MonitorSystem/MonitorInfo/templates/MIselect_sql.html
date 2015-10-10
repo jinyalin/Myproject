@@ -22,7 +22,7 @@
 											<th>预警内容</th>
 											<th>描述</th>
 											<th>预警方式</th>
-											<th>操作</th>
+											<th nowrap="nowrap">操作</th>
 										</tr>
 {% endblock %}
 
@@ -34,7 +34,7 @@
 											<td>{{message.warning_content}}</td>
 											<td nowrap="nowrap">{{message.comment}}</td>
 											<td>{{message.alarm_type}}</td>
-											<td><a href="update?id={{message.id}}&monitor_type=0">修改</a>&nbsp;&nbsp;<a href="ServerConfig?id={{message.id}}&monitor_type=0">配置</a></td>
+											<td><a href="update?id={{message.id}}&monitor_type=0">修改</a></td>
 										</tr>
 										{% endfor %}
 

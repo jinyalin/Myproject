@@ -207,12 +207,15 @@ def ServerConfig(req):
     servers_SN=req.POST.getlist('serverName','0')
     groupSns=req.POST.getlist('groupName','0')
     group_all_check=req.POST.getlist('GroupName','0')
+    print (group_all_check)
     id=req.REQUEST.get('id','0')
+    add_group_sn=""
     if(monitor_type=='0'):
         if req.method == 'POST':
                 delimiter = ','
                 if groupSns != "" and groupSns != '0':
-                    add_group_sn=","+delimiter.join(group_all_check)
+                    if group_all_check != "" and group_all_check != '0' and group_all_check != 0:
+                        add_group_sn=","+delimiter.join(group_all_check)
                 else:
                     return HttpResponseRedirect('../FailureMessage.do?message=MonitorInfo/select.do?monitor_type=0')
                 print("add_group_sn:"+add_group_sn)    
@@ -234,9 +237,9 @@ def ServerConfig(req):
                         print(serverSns)
                         if(serverSns != '0'): 
                             for server_sn in serverSns:
-                                group_sn=group_sn+add_group_sn
-                                print(group_sn)
-                                sql="insert into server_monitor_info(server_sn,monitor_sn,value,mark,frequency,status,group_sn) values ("+str(server_sn)+"," + str(monitor_sn) +","+str(value)+",'"+mark+"',"+str(frequency)+","+str(status)+",'"+group_sn+"')"
+                                group_sn2=group_sn+add_group_sn
+                                print(group_sn2)
+                                sql="insert into server_monitor_info(server_sn,monitor_sn,value,mark,frequency,status,group_sn) values ("+str(server_sn)+"," + str(monitor_sn) +","+str(value)+",'"+mark+"',"+str(frequency)+","+str(status)+",'"+group_sn2+"')"
                                 print(sql)
                                 ShareMethod.views.exeInsert(cur,sql)
                     ShareMethod.views.connClose(conn,cur) 
@@ -314,7 +317,8 @@ def ServerConfig(req):
         if req.method == 'POST':
                 delimiter = ','
                 if groupSns != "" and groupSns != '0':
-                    add_group_sn=","+delimiter.join(group_all_check)
+                    if group_all_check != "" and group_all_check != '0' and group_all_check != 0:
+                        add_group_sn=","+delimiter.join(group_all_check)
                 else:
                     return HttpResponseRedirect('../FailureMessage.do?message=MonitorInfo/select.do?monitor_type=1')
                 print("add_group_sn:"+add_group_sn)    
@@ -337,9 +341,9 @@ def ServerConfig(req):
                         print(serverSns)
                         if(serverSns != '0'): 
                             for server_sn in serverSns:
-                                group_sn=group_sn+add_group_sn
-                                print(group_sn)
-                                sql="insert into server_monitor_info(server_sn,monitor_sn,frequency,status,group_sn) values ("+str(server_sn)+"," + str(monitor_sn) +","+str(frequency)+","+str(status)+",'"+group_sn+"')"
+                                group_sn2=group_sn+add_group_sn
+                                print(group_sn2)
+                                sql="insert into server_monitor_info(server_sn,monitor_sn,frequency,status,group_sn) values ("+str(server_sn)+"," + str(monitor_sn) +","+str(frequency)+","+str(status)+",'"+group_sn2+"')"
                                 print(sql)
                                 ShareMethod.views.exeInsert(cur,sql)
                     ShareMethod.views.connClose(conn,cur) 
