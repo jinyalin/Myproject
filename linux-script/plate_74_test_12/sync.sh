@@ -1,0 +1,18 @@
+#!/bin/bash
+month=`date -d last-month +'%Y-%m'`
+month1=`date -d '2 months ago' +'%Y-%m'`
+mysql -uroot -p123456 -e "use data_handle;update local_gate_data g,local_bill_detail_info b set g.yw_price=b.price where g.server_id=b.server_id and g.user_id=b.user_id  and g.user_sp_number=b.user_sp_number and g.td_code=b.td_code and  g.td_name=b.td_name and g.td_sp_number=b.td_sp_number and g.every_month='$month';
+update local_sms_customer_info d1,local_gate_data d2 set d2.user_type=d1.pay_type,d2.charge_type=d1.charge_type where   d1.server_id=d2.server_id and d1.customer_id=d2.user_id and d1.customer_name=d2.user_name ;
+update local_gate_data b,local_cluster_user_info l set b.charge_type=l.charge_type,b.user_type=l.user_type where l.user_id=b.user_id and l.server_id =b.server_id  and b.every_month='$month';
+update data_handle.local_sgip_user d1,local_gate_data d2 set d2.user_type=d1.user_type,d2.charge_type=d1.charge_type where d1.server_id=d2.server_id and d1.user_id=d2.user_id and d1.user_name=d2.user_name and d2.every_month='$month';
+update data_handle.local_cmpp_user d1,local_gate_data d2 set d2.user_type=d1.user_type,d2.charge_type=d1.charge_type where d1.server_id=d2.server_id and d1.user_id=d2.user_id and d1.user_name=d2.user_name and d2.every_month='$month';
+update data_handle.local_smgp_user d1,local_gate_data d2 set d2.user_type=d1.user_type,d2.charge_type=d1.charge_type where d1.server_id=d2.server_id and d1.user_id=d2.user_id and d1.user_name=d2.user_name and d2.every_month='$month';
+update local_gate_data d1, local_gate_td_info d2 set d1.be_area=d2.be_area,d1.be_type=d2.be_type where d1.server_id=d2.server_id and d1.td_code=d2.td_code and d1.td_name=d2.td_name ;
+update local_gate_data d1, local_cluster_td_info d2 set d1.be_area=d2.be_area,d1.be_type=d2.be_type where d1.server_id=d2.server_id and d1.td_code=d2.td_code and d1.td_name=d2.td_name ;
+update local_gate_data d1,super_plate_gate.local_gate_data d2 set d1.be_area=d2.be_area,d1.be_type=d2.be_type,d1.bill_type=d2.bill_type where  d2.every_month='$month1' and d1.server_id=d2.server_id and d1.td_code=d2.td_code and d1.td_name=d2.td_name ;
+insert into local_gate_td_data select null,every_month,server_id,td_code,td_name,td_sp_number,sum(success_count),sum(fail_count),sum(unknown_count),sum(total),'','','',be_area,be_type,mode,bill_type,intercept_count,intercept_per from local_gate_data where every_month like '$month%'  group by 2,3,4,5;
+insert into super_plate_gate.local_gate_td_data select null,every_month,server_id,td_code,td_name,td_sp_number,success_count,fail_count,unknown_count,total,success_per,fail_per,unknown_per,be_area,be_type,mode,bill_type,intercept_per,intercept_count from local_gate_td_data  where every_month='$month';
+insert into super_plate_gate.local_gate_data select null,user_id,user_name,user_sp_number,td_code,td_name,td_sp_number,success_count,fail_count,unknown_count,total,success_per,fail_per,unknown_per,remote_sn,server_id,every_month,be_area,be_type,mode,bill_type,yw_price,user_type,charge_type,finance_id,intercept_count,intercept_per from local_gate_data where every_month='$month';
+insert into super_plate_gate.local_gate_detail_data select null,every_date,user_id,user_name,user_sp_number,td_code,td_name,td_sp_number,success_count,fail_count,unknown_count,total,remote_sn,server_id,success_per,fail_per,unknown_per,intercept_count,intercept_per from local_gate_detail_data  where every_date like  '$month%';
+select server_id,td_code,td_name,count(*) from super_plate_gate.local_gate_td_data where every_month like  '$month%' and (be_area is null or be_type is null) group by 1,2;"
+
