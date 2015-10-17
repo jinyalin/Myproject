@@ -47,9 +47,12 @@ if __name__=="__main__":
     http = Http(timeout=10)
     headers={'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}
     while True:
-        conn1,cur1 = connDB()
-        sql1 = "select * from protocol_monitor where status=0"
-        exeQuery(cur1,sql1)
+        try:
+            conn1,cur1 = connDB()
+            sql1 = "select * from protocol_monitor where status=0"
+            exeQuery(cur1,sql1)
+        except Exception as e:
+            print(e)
         for row in cur1:
             method = row[2]
             url = str(row[3])+"?"
@@ -89,7 +92,7 @@ if __name__=="__main__":
                             NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
                             conn3,cur3 = connDB()
                             content=url+"访问返回值与期望不符，请查看日志/hskj/web/Monitor/log~"
-                            sql3 = "insert into notice_info(content,alarm_type,alarm_value,status,insert_time) values('" + content +"','sms','13261289750,18511891207,13718894295',0,'"+NowTime+"')"
+                            sql3 = "insert into notice_info(content,alarm_type,alarm_value,status,insert_time) values('" + content +"','sms','13261289750,18514025566,13718894295,15321906869',0,'"+NowTime+"')"
                             #print(sql3)
                             exeInsert(cur3,sql3)
                             connClose(conn3,cur3)
@@ -100,7 +103,7 @@ if __name__=="__main__":
                     NowTime = time.strftime('%Y-%m-%d %H:%M:%S')
                     ErrorLog(url+"接口访问超时，"+str(e))
                     content = url+"接口访问超时，请检查！"
-                    sql3 = "insert into notice_info(content,alarm_type,alarm_value,status,insert_time) values('" + content +"','sms','13261289750,18511891207,13718894295',0,'"+NowTime+"')"
+                    sql3 = "insert into notice_info(content,alarm_type,alarm_value,status,insert_time) values('" + content +"','sms','13261289750,18514025566,13718894295,15321906869',0,'"+NowTime+"')"
                     #print(sql3)
                     exeInsert(cur3,sql3)
                     connClose(conn3,cur3)
