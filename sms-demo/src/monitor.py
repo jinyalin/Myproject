@@ -12,7 +12,7 @@ monitor_url="http://yj.baiwutong.com:8180/PlateWarning"
 plate_port="9998"
 
 monitor(){
-message=`mysql -uyunwei -pmobile707 -e "use sms_client_new;select notice_content,status,email,mobile from system_notice_info where notice_module_sn=$1;" | grep -v "notice_content"`
+message=`$mysql_query -e "use sms_client_new;select notice_content,status,email,mobile from system_notice_info where notice_module_sn=$1;" | grep -v "notice_content"`
         content="$2 "`echo $message | awk '{print $1}'`
         status=`echo $message | awk '{print $2}'`
         email=`echo $message | awk '{print $3}'`

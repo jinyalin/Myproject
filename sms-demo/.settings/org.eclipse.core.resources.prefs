@@ -1,10 +1,11 @@
-#Fri Sep 25 16:23:13 CST 2015
+#Sun Oct 11 23:42:39 CST 2015
 eclipse.preferences.version=1
 encoding//src/OpExcel.py=UTF-8
 encoding//src/SmsTest.py=UTF-8
 encoding//src/httpMonitor.py=utf-8
 encoding//src/kvm.py=UTF-8
 encoding//src/sftp.py=utf8
+encoding//src/sftp_all.py=utf8
 encoding//src/ssh_test.py=UTF-8
 encoding//src/tcpMonitor.py=utf-8
 encoding//src/tcpdump.py=UTF-8
